@@ -1,1 +1,217 @@
-function _0x4771(_0x2957eb,_0x5cfb80){const _0xce9c10=_0xce9c();return _0x4771=function(_0x477135,_0x3742ec){_0x477135=_0x477135-0x12b;let _0x314a1d=_0xce9c10[_0x477135];return _0x314a1d;},_0x4771(_0x2957eb,_0x5cfb80);}const _0x5a5f63=_0x4771;(function(_0x1afa34,_0x748637){const _0x5200ee=_0x4771,_0x24d1c2=_0x1afa34();while(!![]){try{const _0x296a1a=-parseInt(_0x5200ee(0x147))/0x1+parseInt(_0x5200ee(0x12e))/0x2+-parseInt(_0x5200ee(0x173))/0x3+parseInt(_0x5200ee(0x14c))/0x4+parseInt(_0x5200ee(0x14b))/0x5*(parseInt(_0x5200ee(0x15b))/0x6)+parseInt(_0x5200ee(0x15e))/0x7+parseInt(_0x5200ee(0x14d))/0x8*(-parseInt(_0x5200ee(0x138))/0x9);if(_0x296a1a===_0x748637)break;else _0x24d1c2['push'](_0x24d1c2['shift']());}catch(_0x2eb276){_0x24d1c2['push'](_0x24d1c2['shift']());}}}(_0xce9c,0xd59cb));const batmanAnimation=document['getElementById'](_0x5a5f63(0x150)),batmanSec=document[_0x5a5f63(0x132)]('batmanImg');function clientInputValidation(){const _0x4ef4c4=_0x5a5f63;validated=![];var _0x1556cd=$(_0x4ef4c4(0x136))['val']();if(_0x1556cd[_0x4ef4c4(0x16b)]!=0xa)window[_0x4ef4c4(0x154)](0x0,document[_0x4ef4c4(0x157)][_0x4ef4c4(0x159)]),document[_0x4ef4c4(0x132)](_0x4ef4c4(0x151))[_0x4ef4c4(0x12c)][_0x4ef4c4(0x15c)]=_0x4ef4c4(0x14e),document[_0x4ef4c4(0x132)](_0x4ef4c4(0x151))[_0x4ef4c4(0x145)]='Your\x20phone\x20number\x20must\x20be\x20of\x20length\x2010';else{if(!isEmail($(_0x4ef4c4(0x172))[_0x4ef4c4(0x144)]()))window['scrollTo'](0x0,document['body'][_0x4ef4c4(0x159)]),document[_0x4ef4c4(0x132)]('signUpErrorMessage')[_0x4ef4c4(0x12c)]['display']=_0x4ef4c4(0x14e),document[_0x4ef4c4(0x132)](_0x4ef4c4(0x151))[_0x4ef4c4(0x145)]=_0x4ef4c4(0x130);else{if(inputValidation($(_0x4ef4c4(0x166))[_0x4ef4c4(0x144)]()))window[_0x4ef4c4(0x154)](0x0,document[_0x4ef4c4(0x157)]['scrollHeight']),document['getElementById']('signUpErrorMessage')[_0x4ef4c4(0x12c)]['display']='block',document['getElementById'](_0x4ef4c4(0x151))[_0x4ef4c4(0x145)]=_0x4ef4c4(0x16e);else{if(passwordValidation())window['scrollTo'](0x0,document[_0x4ef4c4(0x157)][_0x4ef4c4(0x159)]),document[_0x4ef4c4(0x132)](_0x4ef4c4(0x151))[_0x4ef4c4(0x12c)]['display']=_0x4ef4c4(0x14e),document[_0x4ef4c4(0x132)](_0x4ef4c4(0x151))['innerHTML']=_0x4ef4c4(0x139);else negativeValidation()?(window['scrollTo'](0x0,document[_0x4ef4c4(0x157)][_0x4ef4c4(0x159)]),document[_0x4ef4c4(0x132)](_0x4ef4c4(0x151))[_0x4ef4c4(0x12c)][_0x4ef4c4(0x15c)]='block',document['getElementById'](_0x4ef4c4(0x151))[_0x4ef4c4(0x145)]='Experience\x20or\x20cost\x20of\x20session\x20cannot\x20be\x20less\x20than\x200'):validated=!![];}}}return validated;}function handleSignUpResponse(_0x5ed784){const _0x6f4a96=_0x5a5f63;if(_0x5ed784=='existingEmail')window[_0x6f4a96(0x154)](0x0,document[_0x6f4a96(0x157)][_0x6f4a96(0x159)]),document['getElementById']('signUpErrorMessage')[_0x6f4a96(0x12c)][_0x6f4a96(0x15c)]='block',document[_0x6f4a96(0x132)](_0x6f4a96(0x151))[_0x6f4a96(0x145)]=_0x6f4a96(0x12d);else{if(_0x5ed784==_0x6f4a96(0x133))window[_0x6f4a96(0x154)](0x0,document[_0x6f4a96(0x157)][_0x6f4a96(0x159)]),document[_0x6f4a96(0x132)](_0x6f4a96(0x151))['style'][_0x6f4a96(0x15c)]='block',document[_0x6f4a96(0x132)](_0x6f4a96(0x151))['innerHTML']=_0x6f4a96(0x16d);else{if(_0x5ed784==_0x6f4a96(0x155))window['scrollTo'](0x0,document['body'][_0x6f4a96(0x159)]),document[_0x6f4a96(0x132)](_0x6f4a96(0x151))[_0x6f4a96(0x12c)][_0x6f4a96(0x15c)]=_0x6f4a96(0x14e),document[_0x6f4a96(0x132)](_0x6f4a96(0x151))['innerHTML']=_0x6f4a96(0x13b);else _0x5ed784==_0x6f4a96(0x137)&&(document[_0x6f4a96(0x132)](_0x6f4a96(0x151))[_0x6f4a96(0x12c)][_0x6f4a96(0x15c)]=_0x6f4a96(0x152),document[_0x6f4a96(0x132)]('signupSuccessModal')[_0x6f4a96(0x12c)][_0x6f4a96(0x15c)]=_0x6f4a96(0x170),document['body'][_0x6f4a96(0x12c)]['overflow']=_0x6f4a96(0x16c),setTimeout(()=>{const _0x4ed521=_0x6f4a96;window[_0x4ed521(0x143)]=_0x4ed521(0x15a);},0x9c4));}}}$(_0x5a5f63(0x153))['click'](()=>{const _0x10b120=_0x5a5f63;clientInputValidation()&&$[_0x10b120(0x160)]({'url':'/sign-up','type':_0x10b120(0x15d),'data':{'firstname':$(_0x10b120(0x162))[_0x10b120(0x144)]()[_0x10b120(0x171)](0x0)[_0x10b120(0x16f)]()+$('#firstname')[_0x10b120(0x144)]()[_0x10b120(0x14a)](0x1),'lastname':$('#lastname')[_0x10b120(0x144)]()['charAt'](0x0)[_0x10b120(0x16f)]()+$(_0x10b120(0x142))[_0x10b120(0x144)]()['substring'](0x1),'username':$(_0x10b120(0x131))[_0x10b120(0x144)]()[_0x10b120(0x163)](),'phone':$(_0x10b120(0x136))[_0x10b120(0x144)](),'email':$('#email')['val']()[_0x10b120(0x163)](),'userType':$(_0x10b120(0x166))['val'](),'yearsExperience':$(_0x10b120(0x134))[_0x10b120(0x144)](),'sessionCost':$(_0x10b120(0x158))['val'](),'password':$(_0x10b120(0x165))[_0x10b120(0x144)]()},'success':handleSignUpResponse});}),setInterval(eastereEgg,0x3e8);var doOnce=![];function eastereEgg(){const _0x4c1e61=_0x5a5f63;$(_0x4c1e61(0x131))[_0x4c1e61(0x13c)](function(){const _0x108757=_0x4c1e61;var _0x2fd51e=$(this)[_0x108757(0x144)]()[_0x108757(0x163)]();_0x2fd51e['includes'](_0x108757(0x13e))&&doOnce==![]&&(window[_0x108757(0x154)](0x0,document[_0x108757(0x157)]['scrollHeight']),batmanAnimation[_0x108757(0x15f)][_0x108757(0x167)](_0x108757(0x149)),document[_0x108757(0x132)](_0x108757(0x140))['play'](),document[_0x108757(0x132)](_0x108757(0x140))[_0x108757(0x141)]=0x1,doOnce=!![]);});}function isEmail(_0x489e35){const _0x2f4a9b=_0x5a5f63;var _0x10f27c=/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;return _0x10f27c[_0x2f4a9b(0x16a)](_0x489e35);}function inputValidation(_0xc4160){const _0x430b47=_0x5a5f63,_0x26b44e=document['getElementById'](_0x430b47(0x146)),_0x3b4932=document[_0x430b47(0x132)](_0x430b47(0x169)),_0x860281=document[_0x430b47(0x132)](_0x430b47(0x13d)),_0x3e1dbb=document[_0x430b47(0x132)](_0x430b47(0x12b)),_0x304b08=document[_0x430b47(0x132)](_0x430b47(0x168));if(_0xc4160==_0x430b47(0x161)){if(!_0x26b44e[_0x430b47(0x135)]()||!_0x3b4932[_0x430b47(0x135)]()||!_0x860281[_0x430b47(0x135)]()||!_0x3e1dbb['checkValidity']()||!_0x304b08['checkValidity']())return!![];}else{if(!_0x26b44e[_0x430b47(0x135)]()||!_0x3b4932[_0x430b47(0x135)]()||!_0x860281[_0x430b47(0x135)]())return!![];}}function passwordValidation(){const _0x4b449c=_0x5a5f63,_0x47842b=document[_0x4b449c(0x132)]('password');if(!_0x47842b[_0x4b449c(0x135)]())return!![];}function _0xce9c(){const _0x34cd7f=['classList','ajax','therapist','#firstname','toLowerCase','value','#password','#userType','add','sessionCost','lastname','test','length','hidden','A\x20user\x20with\x20that\x20phone\x20number\x20already\x20exists','There\x20are\x20empty\x20fields','toUpperCase','flex','charAt','#email','706236jaOBjZ','yearsExperience','style','A\x20user\x20with\x20that\x20email\x20already\x20exists','149394qfeFVY','addEventListener','Please\x20follow\x20this\x20email\x20pattern:\x20example@email.com','#username','getElementById','existingPhone','#yearsExperience','checkValidity','#phone','login','176967LaAvzw','Password\x20must\x20be\x20at\x20least\x205\x20or\x20less\x20than\x2020\x20characters\x20long','preventDefault','A\x20user\x20with\x20that\x20username\x20already\x20exists','keyup','username','batman','.form-control','audio','volume','#lastname','location','val','innerHTML','firstname','960772DhsMzO','querySelectorAll','startAnimation','substring','55uNkcKA','3354032bSkyex','56jPtiro','block','.therapistOptions','batmanImg','signUpErrorMessage','none','#signupBtn','scrollTo','existingUsername','click','body','#sessionCost','scrollHeight','/login','306354nZRSDT','display','POST','5137482OFZdgz'];_0xce9c=function(){return _0x34cd7f;};return _0xce9c();}function negativeValidation(){const _0x26e444=_0x5a5f63,_0x420cc1=document[_0x26e444(0x132)](_0x26e444(0x12b))['value'],_0x487dc8=document[_0x26e444(0x132)](_0x26e444(0x168))['value'];if(_0x420cc1<0x0||_0x487dc8<0x0)return!![];}function showTherapyOptions(_0xbd3c22){const _0x30e636=_0x5a5f63,_0x1c4bc4=_0xbd3c22[_0x30e636(0x164)],_0xe9688c=document[_0x30e636(0x148)](_0x30e636(0x14f));if(_0x1c4bc4=='therapist')for(var _0x508330=0x0;_0x508330<_0xe9688c[_0x30e636(0x16b)];_0x508330++){_0xe9688c[_0x508330]['style']['display']=_0x30e636(0x170);}else for(var _0x508330=0x0;_0x508330<_0xe9688c['length'];_0x508330++){_0xe9688c[_0x508330]['style'][_0x30e636(0x15c)]='none';}}const input=document[_0x5a5f63(0x148)](_0x5a5f63(0x13f));for(var i=0x0;i<input['length'];i++){input[i][_0x5a5f63(0x12f)]('keypress',function(_0x39b6c2){const _0x395b22=_0x5a5f63;_0x39b6c2['key']==='Enter'&&(_0x39b6c2[_0x395b22(0x13a)](),document[_0x395b22(0x132)]('signupBtn')[_0x395b22(0x156)]());});}
+/**
+ * Constant variables.
+ */
+const batmanAnimation = document.getElementById('batmanImg');
+const batmanSec = document.getElementById('batmanImg');
+
+/**
+ * 
+ * This function helps with input validation from the forms to ensure user
+ * inputs values that match our patterns and minumum requirements.
+ * 
+ * @returns true if the inputted values are invalid.
+ */
+function clientInputValidation(){
+    validated = false;
+    var phoneLength = $("#phone").val();
+    if (phoneLength.length != 10) {
+        window.scrollTo(0, document.body.scrollHeight);
+        document.getElementById("signUpErrorMessage").style.display = 'block';
+        document.getElementById("signUpErrorMessage").innerHTML = "Your phone number must be of length 10";
+    } else if (!isEmail($("#email").val())) {
+        window.scrollTo(0, document.body.scrollHeight);
+        document.getElementById("signUpErrorMessage").style.display = 'block';
+        document.getElementById("signUpErrorMessage").innerHTML = "Please follow this email pattern: example@email.com";
+    } else if (inputValidation($("#userType").val())) {
+        window.scrollTo(0, document.body.scrollHeight);
+        document.getElementById("signUpErrorMessage").style.display = 'block';
+        document.getElementById("signUpErrorMessage").innerHTML = "There are empty fields";
+    } else if (passwordValidation()) {
+        window.scrollTo(0, document.body.scrollHeight);
+        document.getElementById("signUpErrorMessage").style.display = 'block';
+        document.getElementById("signUpErrorMessage").innerHTML = "Password must be at least 5 or less than 20 characters long";
+    } else if (negativeValidation()) {
+        window.scrollTo(0, document.body.scrollHeight);
+        document.getElementById("signUpErrorMessage").style.display = 'block';
+        document.getElementById("signUpErrorMessage").innerHTML = "Experience or cost of session cannot be less than 0";
+    } else{
+        validated = true;
+    }
+    return validated;
+}
+
+/**
+ * 
+ * This function acts as a helper function that displays proper error messages
+ * if duplicate records exists in the database.
+ * 
+ * @param {*} data as an JSON object
+ */
+function handleSignUpResponse(data) {
+    if (data == "existingEmail") {
+        window.scrollTo(0, document.body.scrollHeight);
+        document.getElementById("signUpErrorMessage").style.display = 'block';
+        document.getElementById("signUpErrorMessage").innerHTML = "A user with that email already exists";
+    } else if (data == "existingPhone") {
+        window.scrollTo(0, document.body.scrollHeight);
+        document.getElementById("signUpErrorMessage").style.display = 'block';
+        document.getElementById("signUpErrorMessage").innerHTML = "A user with that phone number already exists";
+    } else if (data == "existingUsername") {
+        window.scrollTo(0, document.body.scrollHeight);
+        document.getElementById("signUpErrorMessage").style.display = 'block';
+        document.getElementById("signUpErrorMessage").innerHTML = "A user with that username already exists";
+    } else if (data == "login") {
+        document.getElementById("signUpErrorMessage").style.display = 'none';
+        document.getElementById('signupSuccessModal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+            window.location = '/login'
+        }, 2500);
+    }
+}
+
+/**
+ * AJAX call that signs up the user if input validations and duplicate records are cleared.
+ */
+$('#signupBtn').click(() => {
+    if (clientInputValidation()) {
+        $.ajax({
+            url: '/sign-up',
+            type: 'POST',
+            data: {
+                firstname: $("#firstname").val().charAt(0).toUpperCase() + $("#firstname").val().substring(1),
+                lastname: $("#lastname").val().charAt(0).toUpperCase() + $("#lastname").val().substring(1),
+                username: $("#username").val().toLowerCase(),
+                phone: $("#phone").val(),
+                email: $("#email").val().toLowerCase(),
+                userType: $("#userType").val(),
+                yearsExperience: $("#yearsExperience").val(),
+                sessionCost: $("#sessionCost").val(),
+                password: $("#password").val(),
+            }, success: handleSignUpResponse
+        })
+    }
+});
+
+/**
+ * Set for every second.
+ */
+setInterval(eastereEgg, 1000);
+
+/**
+ * Easter egg function.
+ */
+var doOnce = false;
+/**
+ * This function plays an animation when the username field includes the word 'batman'.
+ */
+function eastereEgg() {
+    $('#username').keyup(function () {
+        var userField = $(this).val().toLowerCase();
+        if (userField.includes('batman') && doOnce == false) {
+            window.scrollTo(0, document.body.scrollHeight);
+            batmanAnimation.classList.add('startAnimation');
+            document.getElementById("audio").play();
+            document.getElementById("audio").volume = 1;
+            doOnce = true;
+        }
+    });
+}
+
+/**
+ * 
+ * This function checks to see if the email in the form field mathces the email pattern.
+ * 
+ * @param {*} email as an input valie
+ * @returns true if the email is valid, else returns false.
+ */
+function isEmail(email) {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email);
+}
+
+/**
+ * 
+ * Helper function that checks the input validations on the fields.
+ * 
+ * @param {*} userType as a input value
+ * @returns true if the input values are invalid
+ */
+function inputValidation(userType) {
+    const inpObjFirstName = document.getElementById("firstname");
+    const inpObjLastName = document.getElementById("lastname");
+    const inpObjUsername = document.getElementById("username");
+    const inpObjExperience = document.getElementById("yearsExperience");
+    const inpObjSession = document.getElementById("sessionCost");
+    if (userType == "therapist") {
+        if (!inpObjFirstName.checkValidity() || !inpObjLastName.checkValidity() || !inpObjUsername.checkValidity()
+            || !inpObjExperience.checkValidity() || !inpObjSession.checkValidity()) {
+            return true;
+        }
+    } else {
+        if (!inpObjFirstName.checkValidity() || !inpObjLastName.checkValidity() || !inpObjUsername.checkValidity()) {
+            return true;
+        }
+    }
+}
+
+/**
+ * 
+ * Checks the input validation for password field.
+ * 
+ * @returns true if the input value is invalid
+ */
+function passwordValidation() {
+    const inpObjPassword = document.getElementById("password");
+    if (!inpObjPassword.checkValidity()) {
+        return true;
+    }
+}
+
+/**
+ * 
+ * Checks the input validation for sessionCost and yearsExperience fields.
+ * 
+ * @returns true if the fields are invalid
+ */
+function negativeValidation() {
+    const yearsExp = document.getElementById("yearsExperience").value;
+    const cost = document.getElementById("sessionCost").value;
+    if (yearsExp < 0 || cost < 0) {
+        return true;
+    }
+}
+
+
+/**
+ * 
+ * Display therapy field options if usertype is a therapist
+ * 
+ * @param {*} selectObject as event listener
+ */
+function showTherapyOptions(selectObject) {
+    const value = selectObject.value;
+    const therapyFieldOptions = document.querySelectorAll('.therapistOptions');
+    if (value == 'therapist') {
+        for (var i = 0; i < therapyFieldOptions.length; i++) {
+            therapyFieldOptions[i].style.display = 'flex';
+        }
+    } else {
+        for (var i = 0; i < therapyFieldOptions.length; i++) {
+            therapyFieldOptions[i].style.display = 'none';
+        }
+    }
+}
+
+/**
+ * Trigger click function for enter key for all input fields.
+ */
+const input = document.querySelectorAll(".form-control");
+for (var i = 0; i < input.length; i++) {
+    input[i].addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            document.getElementById("signupBtn").click();
+        }
+    });
+}

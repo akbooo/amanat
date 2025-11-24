@@ -1,1 +1,679 @@
-const _0x3a7cd3=_0x6500;(function(_0x587f82,_0x12efc3){const _0xa8d261=_0x6500,_0x296bbb=_0x587f82();while(!![]){try{const _0x531d54=parseInt(_0xa8d261(0x1e3))/0x1*(parseInt(_0xa8d261(0x1e0))/0x2)+parseInt(_0xa8d261(0x212))/0x3*(parseInt(_0xa8d261(0x234))/0x4)+-parseInt(_0xa8d261(0x219))/0x5*(-parseInt(_0xa8d261(0x200))/0x6)+parseInt(_0xa8d261(0x1d7))/0x7*(-parseInt(_0xa8d261(0x1c5))/0x8)+-parseInt(_0xa8d261(0x206))/0x9*(parseInt(_0xa8d261(0x1bd))/0xa)+-parseInt(_0xa8d261(0x1de))/0xb+parseInt(_0xa8d261(0x23b))/0xc;if(_0x531d54===_0x12efc3)break;else _0x296bbb['push'](_0x296bbb['shift']());}catch(_0x5bf606){_0x296bbb['push'](_0x296bbb['shift']());}}}(_0x2f39,0x1f45b),$(document)['ready'](async function(){const _0xa8aad0=_0x6500;await $['ajax']({'url':_0xa8aad0(0x23a),'type':_0xa8aad0(0x1f5),'success':function(_0x47d064){const _0x236e86=_0xa8aad0;_0x47d064['forEach'](_0x3f95f5=>{const _0x41b260=_0x6500;var _0x51bf62='<tr\x20class=\x22tableRows\x22\x20id=\x22'+_0x3f95f5['_id']+'\x22>';_0x51bf62+=_0x41b260(0x22a)+_0x3f95f5[_0x41b260(0x239)]+_0x41b260(0x1ac),_0x51bf62+=_0x41b260(0x22a)+_0x3f95f5[_0x41b260(0x1f7)]+_0x41b260(0x1ac),_0x51bf62+=_0x41b260(0x22a)+_0x3f95f5[_0x41b260(0x217)]+'</td>',_0x51bf62+=_0x41b260(0x22a)+_0x3f95f5['email']+_0x41b260(0x1ac),_0x51bf62+=_0x41b260(0x22a)+_0x3f95f5['phoneNum']+_0x41b260(0x1ac),_0x51bf62+=_0x41b260(0x22a)+(_0x3f95f5[_0x41b260(0x22d)][_0x41b260(0x1d3)](0x0)[_0x41b260(0x1d4)]()+_0x3f95f5[_0x41b260(0x22d)][_0x41b260(0x1ae)](0x1))+_0x41b260(0x1ac),_0x51bf62+=_0x41b260(0x1aa)+_0x3f95f5[_0x41b260(0x1d1)]+_0x41b260(0x1ac),_0x51bf62+=_0x41b260(0x1aa)+_0x3f95f5[_0x41b260(0x1b8)]+_0x41b260(0x1ac),_0x51bf62+=_0x41b260(0x22a),_0x51bf62+=_0x41b260(0x207),_0x51bf62+='<i\x20class=\x22bi\x20bi-gear-fill\x22></i>',_0x51bf62+='<i\x20class=\x22bi\x20bi-pencil-fill\x20settingIcon\x20editUser\x22></i>',_0x51bf62+=_0x41b260(0x1f3),_0x51bf62+=_0x41b260(0x205),_0x51bf62+=_0x41b260(0x1ac),_0x51bf62+=_0x41b260(0x1d6),$('tbody')[_0x41b260(0x1b0)](_0x51bf62);}),document[_0x236e86(0x1b6)](_0x236e86(0x1bb))[_0x236e86(0x1b2)]=_0x47d064['length'];}}),document[_0xa8aad0(0x1b6)]('0')[_0xa8aad0(0x213)](_0xa8aad0(0x225),_0xa8aad0(0x223)),document['getElementById']('1')['setAttribute'](_0xa8aad0(0x225),'bi\x20bi-caret-down-fill'),document[_0xa8aad0(0x1b6)]('2')[_0xa8aad0(0x213)](_0xa8aad0(0x225),_0xa8aad0(0x223)),document[_0xa8aad0(0x1b6)]('3')['setAttribute'](_0xa8aad0(0x225),_0xa8aad0(0x223)),document[_0xa8aad0(0x1b6)]('4')[_0xa8aad0(0x213)]('class',_0xa8aad0(0x223)),sortTable();var _0x5aae09=document[_0xa8aad0(0x1b6)](_0xa8aad0(0x1df)),_0x38c967=document[_0xa8aad0(0x1b6)](_0xa8aad0(0x1e9)),_0x35291c=document[_0xa8aad0(0x1b6)](_0xa8aad0(0x1ed));function _0x169ac2(){const _0x1c59cf=_0xa8aad0;let _0x157c7d=![];var _0x15f13d=$(_0x1c59cf(0x1cd))[_0x1c59cf(0x1e7)]();if(_0x15f13d[_0x1c59cf(0x232)]!=0xa)document['getElementById'](_0x1c59cf(0x1d2))[_0x1c59cf(0x1b5)][_0x1c59cf(0x1cc)]=_0x1c59cf(0x241),document[_0x1c59cf(0x1b6)](_0x1c59cf(0x1d2))[_0x1c59cf(0x1b2)]=_0x1c59cf(0x1db);else{if(!isEmail($(_0x1c59cf(0x1d0))[_0x1c59cf(0x1e7)]()))document['getElementById'](_0x1c59cf(0x1d2))[_0x1c59cf(0x1b5)]['display']=_0x1c59cf(0x241),document[_0x1c59cf(0x1b6)](_0x1c59cf(0x1d2))[_0x1c59cf(0x1b2)]=_0x1c59cf(0x238);else{if(_0x19bffc())document[_0x1c59cf(0x1b6)](_0x1c59cf(0x1d2))[_0x1c59cf(0x1b5)][_0x1c59cf(0x1cc)]=_0x1c59cf(0x241),document[_0x1c59cf(0x1b6)]('createUserErrorMessage')[_0x1c59cf(0x1b2)]=_0x1c59cf(0x1b9);else{if(_0x40319b())document['getElementById'](_0x1c59cf(0x1d2))[_0x1c59cf(0x1b5)][_0x1c59cf(0x1cc)]='block',document[_0x1c59cf(0x1b6)](_0x1c59cf(0x1d2))[_0x1c59cf(0x1b2)]=_0x1c59cf(0x216);else _0x512d34()?(document['getElementById'](_0x1c59cf(0x1d2))[_0x1c59cf(0x1b5)][_0x1c59cf(0x1cc)]=_0x1c59cf(0x241),document['getElementById'](_0x1c59cf(0x1d2))['innerHTML']='Experience\x20or\x20cost\x20of\x20session\x20cannot\x20be\x20less\x20than\x200'):_0x157c7d=!![];}}}return _0x157c7d;}function _0x38d2(_0x2aaba8){const _0x10624a=_0xa8aad0;if(_0x2aaba8==_0x10624a(0x1f0))document[_0x10624a(0x1b6)](_0x10624a(0x1d2))[_0x10624a(0x1b5)][_0x10624a(0x1cc)]=_0x10624a(0x241),document[_0x10624a(0x1b6)](_0x10624a(0x1d2))['innerHTML']=_0x10624a(0x236);else{if(_0x2aaba8==_0x10624a(0x1c1))document[_0x10624a(0x1b6)]('createUserErrorMessage')['style'][_0x10624a(0x1cc)]=_0x10624a(0x241),document[_0x10624a(0x1b6)]('createUserErrorMessage')['innerHTML']=_0x10624a(0x202);else _0x2aaba8=='existingUsername'?(document['getElementById'](_0x10624a(0x1d2))[_0x10624a(0x1b5)][_0x10624a(0x1cc)]=_0x10624a(0x241),document['getElementById']('createUserErrorMessage')['innerHTML']='A\x20user\x20with\x20that\x20username\x20already\x20exists'):(document[_0x10624a(0x1b6)](_0x10624a(0x1ef))[_0x10624a(0x1b5)][_0x10624a(0x1cc)]=_0x10624a(0x1d5),document[_0x10624a(0x1d9)][_0x10624a(0x1b5)]['overflow']=_0x10624a(0x1cb),setTimeout(()=>{const _0x1fa7b0=_0x10624a;location[_0x1fa7b0(0x1d8)]();},0x9c4));}}document['getElementById'](_0xa8aad0(0x1ba))[_0xa8aad0(0x23f)]=function(){const _0x58f62e=_0xa8aad0;_0x5aae09[_0x58f62e(0x1b5)][_0x58f62e(0x1cc)]=_0x58f62e(0x241),document[_0x58f62e(0x1d9)][_0x58f62e(0x1b5)]['overflow']=_0x58f62e(0x1cb),showTherapyOptions($(_0x58f62e(0x229))),$(_0x58f62e(0x244))[_0x58f62e(0x20c)](),$(_0x58f62e(0x244))[_0x58f62e(0x1e6)](()=>{const _0x22b0e8=_0x58f62e;_0x169ac2()&&$['ajax']({'url':_0x22b0e8(0x1a6),'type':_0x22b0e8(0x1ab),'data':{'firstname':$(_0x22b0e8(0x210))[_0x22b0e8(0x1e7)]()[_0x22b0e8(0x1d3)](0x0)[_0x22b0e8(0x1d4)]()+$(_0x22b0e8(0x210))[_0x22b0e8(0x1e7)]()[_0x22b0e8(0x1ae)](0x1),'lastname':$('#lastname')[_0x22b0e8(0x1e7)]()[_0x22b0e8(0x1d3)](0x0)[_0x22b0e8(0x1d4)]()+$(_0x22b0e8(0x1c2))[_0x22b0e8(0x1e7)]()[_0x22b0e8(0x1ae)](0x1),'username':$(_0x22b0e8(0x231))['val']()[_0x22b0e8(0x1dc)](),'phone':$(_0x22b0e8(0x1cd))[_0x22b0e8(0x1e7)](),'email':$(_0x22b0e8(0x1d0))[_0x22b0e8(0x1e7)]()[_0x22b0e8(0x1dc)](),'userType':$(_0x22b0e8(0x229))[_0x22b0e8(0x1e7)](),'yearsExperience':$(_0x22b0e8(0x214))[_0x22b0e8(0x1e7)](),'sessionCost':$('#sessionCost')[_0x22b0e8(0x1e7)](),'password':$(_0x22b0e8(0x222))[_0x22b0e8(0x1e7)]()},'success':_0x38d2});});};function _0x19bffc(){const _0x189f56=_0xa8aad0,_0x93ddb0=document['getElementById']('firstname'),_0x416e3f=document[_0x189f56(0x1b6)](_0x189f56(0x1fb)),_0x34773e=document['getElementById'](_0x189f56(0x217)),_0xb7ba62=document[_0x189f56(0x1b6)](_0x189f56(0x1d1)),_0x812589=document['getElementById']('sessionCost');if(!_0x93ddb0[_0x189f56(0x1c3)]()||!_0x416e3f['checkValidity']()||!_0x34773e[_0x189f56(0x1c3)]())return!![];else{if($(_0x189f56(0x229))[_0x189f56(0x1e7)]()=='therapist'&&(!_0xb7ba62['checkValidity']()||!_0x812589[_0x189f56(0x1c3)]()))return!![];}}function _0x40319b(){const _0x2b434f=_0xa8aad0,_0x18b708=document[_0x2b434f(0x1b6)](_0x2b434f(0x1c8));if(!_0x18b708[_0x2b434f(0x1c3)]())return!![];}function _0x512d34(){const _0x5ee709=_0xa8aad0,_0x3d4a59=document[_0x5ee709(0x1b6)](_0x5ee709(0x1d1))[_0x5ee709(0x1b4)],_0x4f1d12=document[_0x5ee709(0x1b6)]('sessionCost')[_0x5ee709(0x1b4)];if(_0x3d4a59<0x0||_0x4f1d12<0x0)return!![];}function _0xe465ad(_0x14546d){const _0x437dbe=_0xa8aad0;if(_0x14546d=='lastAdmin'){document['getElementById'](_0x437dbe(0x201))[_0x437dbe(0x1b5)][_0x437dbe(0x1cc)]=_0x437dbe(0x241),$(_0x437dbe(0x1e1))[_0x437dbe(0x1bc)](_0x437dbe(0x1ec));return;}else document[_0x437dbe(0x1b6)](_0x437dbe(0x201))['style']['display']=_0x437dbe(0x1e2),document[_0x437dbe(0x1b6)](_0x437dbe(0x1ef))['style'][_0x437dbe(0x1cc)]=_0x437dbe(0x1d5),document[_0x437dbe(0x1d9)][_0x437dbe(0x1b5)][_0x437dbe(0x246)]=_0x437dbe(0x1cb);setTimeout(()=>{const _0x34d23d=_0x437dbe;location[_0x34d23d(0x1d8)]();},0x9c4);}const _0x26c2e5=document[_0xa8aad0(0x22e)]('.deleteUser');for(var _0xcead68=0x0;_0xcead68<_0x26c2e5['length'];_0xcead68++){_0x26c2e5[_0xcead68][_0xa8aad0(0x23f)]=function(_0x2b29e2){const _0x2114b8=_0xa8aad0;_0x35291c[_0x2114b8(0x1b5)]['display']=_0x2114b8(0x241),document[_0x2114b8(0x1d9)][_0x2114b8(0x1b5)][_0x2114b8(0x246)]=_0x2114b8(0x1cb),document['getElementById'](_0x2114b8(0x201))[_0x2114b8(0x1b5)]['display']=_0x2114b8(0x1e2);const _0x15e19=this[_0x2114b8(0x1f1)]('tr');document[_0x2114b8(0x1b6)](_0x2114b8(0x22b))[_0x2114b8(0x1b2)]='@'+this[_0x2114b8(0x1f1)]('tr')[_0x2114b8(0x1e8)][0x2][_0x2114b8(0x1b2)];let _0x696a21=_0x15e19['children'][0x5][_0x2114b8(0x1b2)][_0x2114b8(0x1dc)]();document[_0x2114b8(0x1b6)](_0x2114b8(0x23c))[_0x2114b8(0x23f)]=function(){const _0x2188a4=_0x2114b8;$['ajax']({'url':_0x2188a4(0x1c7),'type':_0x2188a4(0x204),'data':{'id':_0x15e19['id'],'previousUserType':_0x696a21},'success':_0xe465ad});};};}function _0x5cc69d(){const _0x5ddfcb=_0xa8aad0;let _0x20a4b0=![];var _0x2d0824=$('#editPhone')[_0x5ddfcb(0x1e7)]();if(_0x2d0824[_0x5ddfcb(0x232)]!=0xa)document[_0x5ddfcb(0x1b6)]('editUserErrorMessage')['style']['display']=_0x5ddfcb(0x241),document[_0x5ddfcb(0x1b6)]('editUserErrorMessage')['innerHTML']=_0x5ddfcb(0x1db);else{if(!isEmail($('#editEmail')[_0x5ddfcb(0x1e7)]()))document['getElementById']('editUserErrorMessage')['style'][_0x5ddfcb(0x1cc)]='block',document[_0x5ddfcb(0x1b6)](_0x5ddfcb(0x1c6))[_0x5ddfcb(0x1b2)]=_0x5ddfcb(0x218);else{if(_0x4f7aa7())document['getElementById'](_0x5ddfcb(0x1c6))[_0x5ddfcb(0x1b5)][_0x5ddfcb(0x1cc)]='block',document['getElementById'](_0x5ddfcb(0x1c6))[_0x5ddfcb(0x1b2)]=_0x5ddfcb(0x1b1);else{if(_0x55d38d())document['getElementById'](_0x5ddfcb(0x1c6))['style'][_0x5ddfcb(0x1cc)]=_0x5ddfcb(0x241),document['getElementById']('editUserErrorMessage')[_0x5ddfcb(0x1b2)]=_0x5ddfcb(0x216);else _0x18e204()?(document[_0x5ddfcb(0x1b6)]('editUserErrorMessage')[_0x5ddfcb(0x1b5)][_0x5ddfcb(0x1cc)]=_0x5ddfcb(0x241),document['getElementById']('editUserErrorMessage')[_0x5ddfcb(0x1b2)]=_0x5ddfcb(0x245)):_0x20a4b0=!![];}}}return _0x20a4b0;}function _0x3cf485(_0x1e315d){const _0x30314b=_0xa8aad0;if(_0x1e315d==_0x30314b(0x1f0))document[_0x30314b(0x1b6)](_0x30314b(0x1c6))[_0x30314b(0x1b5)][_0x30314b(0x1cc)]='block',$('#editUserErrorMessage')[_0x30314b(0x1bc)](_0x30314b(0x236));else{if(_0x1e315d==_0x30314b(0x1c1))document[_0x30314b(0x1b6)]('editUserErrorMessage')[_0x30314b(0x1b5)]['display']=_0x30314b(0x241),$(_0x30314b(0x1e4))[_0x30314b(0x1bc)](_0x30314b(0x202));else{if(_0x1e315d==_0x30314b(0x224))document['getElementById'](_0x30314b(0x1c6))[_0x30314b(0x1b5)][_0x30314b(0x1cc)]='block',$('#editUserErrorMessage')[_0x30314b(0x1bc)](_0x30314b(0x1f2));else{if(_0x1e315d==_0x30314b(0x1be))document['getElementById'](_0x30314b(0x1c6))['style'][_0x30314b(0x1cc)]='none',document[_0x30314b(0x1b6)](_0x30314b(0x1ef))[_0x30314b(0x1b5)]['display']=_0x30314b(0x1d5),document[_0x30314b(0x1d9)][_0x30314b(0x1b5)][_0x30314b(0x246)]=_0x30314b(0x1cb),setTimeout(()=>{const _0x121e40=_0x30314b;location[_0x121e40(0x1d8)]();},0x9c4);else _0x1e315d=='lastAdmin'?(document['getElementById']('editUserErrorMessage')[_0x30314b(0x1b5)]['display']=_0x30314b(0x241),$('#editUserErrorMessage')[_0x30314b(0x1bc)](_0x30314b(0x1f8))):(document[_0x30314b(0x1b6)](_0x30314b(0x1c6))[_0x30314b(0x1b5)][_0x30314b(0x1cc)]=_0x30314b(0x1e2),document[_0x30314b(0x1b6)]('dashboardSuccessModal')[_0x30314b(0x1b5)]['display']=_0x30314b(0x1d5),document[_0x30314b(0x1d9)]['style'][_0x30314b(0x246)]=_0x30314b(0x1cb),setTimeout(()=>{const _0xf3448d=_0x30314b;location[_0xf3448d(0x1d8)]();},0x9c4));}}}}function _0x2c6563(_0x407a27){const _0x419beb=_0xa8aad0;document['getElementById'](_0x419beb(0x1c6))[_0x419beb(0x1b5)][_0x419beb(0x1cc)]=_0x419beb(0x1e2),document[_0x419beb(0x1b6)](_0x419beb(0x1ca))[_0x419beb(0x1b4)]=_0x407a27[_0x419beb(0x1e8)][0x0]['innerHTML'],document[_0x419beb(0x1b6)](_0x419beb(0x21c))['value']=_0x407a27[_0x419beb(0x1e8)][0x1][_0x419beb(0x1b2)],document[_0x419beb(0x1b6)](_0x419beb(0x247))[_0x419beb(0x1b4)]=_0x407a27[_0x419beb(0x1e8)][0x2]['innerHTML'],document[_0x419beb(0x1b6)]('editEmail')['value']=_0x407a27['children'][0x3]['innerHTML'],document['getElementById'](_0x419beb(0x226))['value']=_0x407a27['children'][0x4][_0x419beb(0x1b2)],document[_0x419beb(0x1b6)](_0x419beb(0x1eb))[_0x419beb(0x1b4)]=_0x407a27[_0x419beb(0x1e8)][0x5]['innerHTML'][_0x419beb(0x1dc)](),document['getElementById'](_0x419beb(0x1a7))[_0x419beb(0x1b4)]=_0x407a27['children'][0x6][_0x419beb(0x1b2)],document[_0x419beb(0x1b6)]('editSessionCost')[_0x419beb(0x1b4)]=_0x407a27['children'][0x7][_0x419beb(0x1b2)][_0x419beb(0x1dc)](),document[_0x419beb(0x1b6)](_0x419beb(0x1a8))['value']='',showTherapyOptions($(_0x419beb(0x21d)));}const _0x472ad4=document[_0xa8aad0(0x22e)]('.editUser');for(var _0xcead68=0x0;_0xcead68<_0x472ad4[_0xa8aad0(0x232)];_0xcead68++){_0x472ad4[_0xcead68][_0xa8aad0(0x23f)]=function(_0x3ef082){const _0x3273c1=_0xa8aad0;_0x38c967[_0x3273c1(0x1b5)][_0x3273c1(0x1cc)]=_0x3273c1(0x241),document['body'][_0x3273c1(0x1b5)][_0x3273c1(0x246)]=_0x3273c1(0x1cb);const _0x1bab28=this['closest']('tr');let _0x4c7eb2=_0x1bab28['children'][0x5][_0x3273c1(0x1b2)][_0x3273c1(0x1dc)]();_0x2c6563(_0x1bab28),$(_0x3273c1(0x1e5))['off'](),$(_0x3273c1(0x1e5))[_0x3273c1(0x1e6)](()=>{const _0x1f03f5=_0x3273c1;_0x5cc69d()&&$[_0x1f03f5(0x1fe)]({'url':_0x1f03f5(0x1fc),'type':_0x1f03f5(0x233),'data':{'id':_0x1bab28['id'],'previousUserType':_0x4c7eb2,'firstname':$(_0x1f03f5(0x1ea))[_0x1f03f5(0x1e7)]()['charAt'](0x0)[_0x1f03f5(0x1d4)]()+$(_0x1f03f5(0x1ea))[_0x1f03f5(0x1e7)]()[_0x1f03f5(0x1ae)](0x1),'lastname':$('#editLastname')['val']()[_0x1f03f5(0x1d3)](0x0)[_0x1f03f5(0x1d4)]()+$(_0x1f03f5(0x1bf))[_0x1f03f5(0x1e7)]()['substring'](0x1),'username':$(_0x1f03f5(0x20e))[_0x1f03f5(0x1e7)]()[_0x1f03f5(0x1dc)](),'email':$(_0x1f03f5(0x228))[_0x1f03f5(0x1e7)]()[_0x1f03f5(0x1dc)](),'phone':$(_0x1f03f5(0x1a4))[_0x1f03f5(0x1e7)](),'userType':$('#editUserType')[_0x1f03f5(0x1e7)](),'yearsExperience':$(_0x1f03f5(0x203))[_0x1f03f5(0x1e7)](),'sessionCost':$(_0x1f03f5(0x1b3))['val'](),'password':$(_0x1f03f5(0x1fa))[_0x1f03f5(0x1e7)]()},'success':_0x3cf485});});};}function _0x4f7aa7(){const _0x2c8c8e=_0xa8aad0;var _0x564944=document[_0x2c8c8e(0x1b6)](_0x2c8c8e(0x1eb))[_0x2c8c8e(0x1b4)];const _0x25d2a2=document[_0x2c8c8e(0x1b6)](_0x2c8c8e(0x1ca)),_0x3d5709=document[_0x2c8c8e(0x1b6)](_0x2c8c8e(0x21c)),_0x34dd8e=document[_0x2c8c8e(0x1b6)](_0x2c8c8e(0x247)),_0x25438d=document['getElementById']('editYearsExperience'),_0xccbc7d=document['getElementById'](_0x2c8c8e(0x1c9));if(_0x564944==_0x2c8c8e(0x21e)){if(!_0x25d2a2[_0x2c8c8e(0x1c3)]()||!_0x3d5709[_0x2c8c8e(0x1c3)]()||!_0x34dd8e[_0x2c8c8e(0x1c3)]()||!_0x25438d['checkValidity']()||!_0xccbc7d[_0x2c8c8e(0x1c3)]())return!![];}else{if(!_0x25d2a2[_0x2c8c8e(0x1c3)]()||!_0x3d5709[_0x2c8c8e(0x1c3)]()||!_0x34dd8e[_0x2c8c8e(0x1c3)]())return!![];}}function _0x55d38d(){const _0x4d9d51=_0xa8aad0,_0x2371e8=document[_0x4d9d51(0x1b6)](_0x4d9d51(0x1a8));if(!_0x2371e8[_0x4d9d51(0x1c3)]())return!![];}function _0x18e204(){const _0x2b3c33=_0xa8aad0,_0x4d4d40=document[_0x2b3c33(0x1b6)](_0x2b3c33(0x1a7))[_0x2b3c33(0x1b4)],_0x1d172f=document['getElementById'](_0x2b3c33(0x1c9))[_0x2b3c33(0x1b4)];if(_0x4d4d40<0x0||_0x1d172f<0x0)return!![];}document[_0xa8aad0(0x1b6)]('closeCreate')[_0xa8aad0(0x23f)]=function(){const _0x23d5d1=_0xa8aad0;_0x5aae09['style'][_0x23d5d1(0x1cc)]='none',document[_0x23d5d1(0x1d9)][_0x23d5d1(0x1b5)][_0x23d5d1(0x246)]=_0x23d5d1(0x1a9);},document['getElementById'](_0xa8aad0(0x1cf))[_0xa8aad0(0x23f)]=function(){const _0x310367=_0xa8aad0;_0x38c967[_0x310367(0x1b5)][_0x310367(0x1cc)]=_0x310367(0x1e2),document[_0x310367(0x1d9)]['style'][_0x310367(0x246)]=_0x310367(0x1a9);},document[_0xa8aad0(0x1b6)](_0xa8aad0(0x1f6))[_0xa8aad0(0x23f)]=function(){const _0x5c0da9=_0xa8aad0;_0x35291c[_0x5c0da9(0x1b5)][_0x5c0da9(0x1cc)]=_0x5c0da9(0x1e2),document['body'][_0x5c0da9(0x1b5)][_0x5c0da9(0x246)]='auto';},window['onclick']=function(_0x12da1a){const _0x1e0a1a=_0xa8aad0;if(_0x12da1a[_0x1e0a1a(0x20a)]==_0x5aae09)document[_0x1e0a1a(0x1b6)](_0x1e0a1a(0x1d2))[_0x1e0a1a(0x1b5)]['display']=_0x1e0a1a(0x1e2),_0x5aae09[_0x1e0a1a(0x1b5)]['display']='none',document[_0x1e0a1a(0x1d9)][_0x1e0a1a(0x1b5)][_0x1e0a1a(0x246)]=_0x1e0a1a(0x1a9);else{if(_0x12da1a[_0x1e0a1a(0x20a)]==_0x38c967)document[_0x1e0a1a(0x1b6)](_0x1e0a1a(0x1c6))[_0x1e0a1a(0x1b5)][_0x1e0a1a(0x1cc)]='none',_0x38c967[_0x1e0a1a(0x1b5)]['display']='none',document['body'][_0x1e0a1a(0x1b5)][_0x1e0a1a(0x246)]='auto';else _0x12da1a[_0x1e0a1a(0x20a)]==_0x35291c&&(document['getElementById'](_0x1e0a1a(0x201))['style']['display']=_0x1e0a1a(0x1e2),_0x35291c[_0x1e0a1a(0x1b5)]['display']='none',document[_0x1e0a1a(0x1d9)]['style'][_0x1e0a1a(0x246)]=_0x1e0a1a(0x1a9));}};const _0x2bb5cc=document[_0xa8aad0(0x22e)](_0xa8aad0(0x240));for(const _0x540d93 of _0x2bb5cc){_0x540d93[_0xa8aad0(0x23f)]=function(){const _0x2f9279=_0xa8aad0;(this[_0x2f9279(0x21b)][_0x2f9279(0x1ce)](_0x2f9279(0x1da))||this[_0x2f9279(0x21b)][_0x2f9279(0x1ce)](_0x2f9279(0x22c)))&&(this['firstElementChild'][_0x2f9279(0x21b)]['toggle'](_0x2f9279(0x1da)),this['children'][0x1][_0x2f9279(0x21b)][_0x2f9279(0x1ce)](_0x2f9279(0x1da))||this['children'][0x1][_0x2f9279(0x21b)][_0x2f9279(0x1ce)](_0x2f9279(0x22c))||this['children'][0x2][_0x2f9279(0x21b)][_0x2f9279(0x1ce)](_0x2f9279(0x1da))||this[_0x2f9279(0x1e8)][0x2]['classList'][_0x2f9279(0x1ce)](_0x2f9279(0x22c))?(this[_0x2f9279(0x1e8)][0x1][_0x2f9279(0x21b)][_0x2f9279(0x21f)](_0x2f9279(0x1da)),this[_0x2f9279(0x1e8)][0x1]['classList'][_0x2f9279(0x21f)]('inactive'),this[_0x2f9279(0x1e8)][0x2]['classList']['toggle']('active'),this[_0x2f9279(0x1e8)][0x2][_0x2f9279(0x21b)][_0x2f9279(0x21f)](_0x2f9279(0x22c))):(this[_0x2f9279(0x1e8)][0x1]['classList'][_0x2f9279(0x1fd)]('active'),this[_0x2f9279(0x1e8)][0x2]['classList'][_0x2f9279(0x1fd)](_0x2f9279(0x1da))));};}}));function _0x2f39(){const _0x365d52=['add','ajax','editUserBtn','43422BAYorg','deleteUserErrorMessage','A\x20user\x20with\x20that\x20phone\x20number\x20already\x20exists','#editYearsExperience','DELETE','</div>','1948986jLtWuz','<div\x20class=\x22dashSettings\x20inactive\x22>','#000','asc','target','createUserBtn','off','data-type','#editUsername','number','#firstname','from','237693NpxkxF','setAttribute','#yearsExperience','map','Password\x20must\x20be\x20at\x20least\x205\x20or\x20less\x20than\x2020\x20characters\x20long','username','Please\x20follow\x20this\x20email\x20pattern:\x20example@gmail.com','55mBmwXS','sort','classList','editLastname','#editUserType','therapist','toggle','forEach','Enter','#password','bi\x20bi-caret-down-fill','existingUsername','class','editPhone','addEventListener','#editEmail','#userType','<td>','deleteUsername','inactive','userType','querySelectorAll','appendChild','getAttribute','#username','length','PUT','8WNaNpS','searchbar','A\x20user\x20with\x20that\x20email\x20already\x20exists','#resultsFound','Please\x20follow\x20this\x20email\x20pattern:\x20example@email.com','firstName','/getAllUsersData','2864352diLEdG','deleteUserBtn','querySelector','getElementsByTagName','onclick','.dashSettings','block','#09C5A3','removeChild','#createUserBtn','Experience\x20or\x20cost\x20of\x20session\x20cannot\x20be\x20less\x20than\x200','overflow','editUsername','#editPhone','#editUserForm\x20.form-control','/createUser','editYearsExperience','editPassword','auto','<td\x20class=\x22hiddenRow\x22>','POST','</td>','keypress','substring','bi\x20bi-caret-up-fill','append','There\x20are\x20empty\x20fields.','innerHTML','#editSessionCost','value','style','getElementById','color','sessionCost','There\x20are\x20empty\x20fields','createUser','resultsFound','html','10wAmMOp','updatedWithPassword','#editLastname','call','existingPhone','#lastname','checkValidity','#createUserForm\x20.form-control','53016VlVMQf','editUserErrorMessage','/deleteUser','password','editSessionCost','editFirstname','hidden','display','#phone','contains','closeEdit','#email','yearsExperience','createUserErrorMessage','charAt','toUpperCase','flex','</tr>','42cLxvtj','reload','body','active','The\x20phone\x20number\x20must\x20be\x20of\x20length\x2010','toLowerCase','tbody','2779777JjPcqV','createUserModal','14OOqdtL','#deleteUserErrorMessage','none','22907TYAhYO','#editUserErrorMessage','#editUserBtn','click','val','children','editUserModal','#editFirstname','editUserType','Deletion\x20failed.\x20Database\x20needs\x20to\x20have\x20at\x20least\x201\x20administrator.','deleteUserModal','parentElement','dashboardSuccessModal','existingEmail','closest','A\x20user\x20with\x20that\x20username\x20already\x20exists','<i\x20class=\x22bi\x20bi-trash-fill\x20settingIcon\x20deleteUser\x22></i>','dashboardTable','GET','closeDelete','lastName','Edit\x20failed.\x20Database\x20needs\x20to\x20have\x20at\x20least\x201\x20administrator.','preventDefault','#editPassword','lastname','/editUser'];_0x2f39=function(){return _0x365d52;};return _0x2f39();}function searchTable(){const _0x14d7b3=_0x6500,_0xe56847=document['getElementById'](_0x14d7b3(0x235))[_0x14d7b3(0x1b4)][_0x14d7b3(0x1d4)](),_0x3054e5=document['getElementById'](_0x14d7b3(0x1f4)),_0x31122f=_0x3054e5['tBodies'][0x0]['getElementsByTagName']('tr');let _0x44c508=0x0;for(var _0xc0577f=0x0;_0xc0577f<_0x31122f[_0x14d7b3(0x232)];_0xc0577f++){var _0x4d7895=_0x31122f[_0xc0577f][_0x14d7b3(0x23e)]('td');_0x31122f[_0xc0577f][_0x14d7b3(0x1b5)][_0x14d7b3(0x1cc)]=_0x14d7b3(0x1e2);for(var _0x391353=0x0;_0x391353<_0x4d7895['length'];_0x391353++){if(_0x4d7895[_0x391353][_0x14d7b3(0x1b2)][_0x14d7b3(0x1d4)]()['indexOf'](_0xe56847)>-0x1){_0x31122f[_0xc0577f][_0x14d7b3(0x1b5)]['display']='',_0x44c508++;break;}}}$(_0x14d7b3(0x237))[_0x14d7b3(0x1bc)](''+_0x44c508);}function sortTable(){const _0x5306da=_0x6500,_0x372dc3=document['getElementById'](_0x5306da(0x1f4)),_0x24dcc8=_0x372dc3['querySelectorAll']('.tHead'),_0x5e0c7d=Array[_0x5306da(0x211)](_0x24dcc8)[_0x5306da(0x215)](function(_0x46b52c){return'';}),_0xd75881=function(_0x44f599,_0x1ca7f1){const _0x24cff3=_0x5306da,_0x1b8ab4=_0x24dcc8[_0x44f599][_0x24cff3(0x230)](_0x24cff3(0x20d));switch(_0x1b8ab4){case _0x24cff3(0x20f):return parseFloat(_0x1ca7f1);case'string':default:return _0x1ca7f1;}},_0x261f63=_0x372dc3[_0x5306da(0x23d)](_0x5306da(0x1dd)),_0x30dda5=_0x261f63[_0x5306da(0x22e)]('tr'),_0x13538b=function(_0x42dc4e){const _0x283aa0=_0x5306da,_0x5435c6=_0x5e0c7d[_0x42dc4e]||_0x283aa0(0x209),_0x8ea81=_0x5435c6===_0x283aa0(0x209)?0x1:-0x1,_0x5e1709=Array[_0x283aa0(0x211)](_0x30dda5);_0x5e1709[_0x283aa0(0x21a)](function(_0x128103,_0x2ebe8d){const _0x38512e=_0x283aa0,_0x27412c=_0x128103[_0x38512e(0x22e)]('td')[_0x42dc4e][_0x38512e(0x1b2)]['toLowerCase'](),_0x15cd7a=_0x2ebe8d[_0x38512e(0x22e)]('td')[_0x42dc4e][_0x38512e(0x1b2)][_0x38512e(0x1dc)](),_0x2f82a4=_0xd75881(_0x42dc4e,_0x27412c),_0x27c49e=_0xd75881(_0x42dc4e,_0x15cd7a);switch(!![]){case _0x2f82a4>_0x27c49e:return 0x1*_0x8ea81;case _0x2f82a4<_0x27c49e:return-0x1*_0x8ea81;case _0x2f82a4===_0x27c49e:return 0x0;}}),[][_0x283aa0(0x220)][_0x283aa0(0x1c0)](_0x30dda5,function(_0x49ec4b){const _0x48d41d=_0x283aa0;_0x261f63[_0x48d41d(0x243)](_0x49ec4b);}),_0x5435c6===_0x283aa0(0x209)?(_0x5e0c7d[_0x42dc4e]='desc',document[_0x283aa0(0x1b6)](_0x42dc4e)[_0x283aa0(0x213)](_0x283aa0(0x225),_0x283aa0(0x223))):(_0x5e0c7d[_0x42dc4e]='asc',document[_0x283aa0(0x1b6)](_0x42dc4e)[_0x283aa0(0x213)](_0x283aa0(0x225),_0x283aa0(0x1af))),_0x5e1709[_0x283aa0(0x220)](function(_0x450a9d){const _0x504561=_0x283aa0;_0x261f63[_0x504561(0x22f)](_0x450a9d);});};[][_0x5306da(0x220)][_0x5306da(0x1c0)](_0x24dcc8,function(_0x4b51f7,_0xd35fec){const _0x1f2129=_0x5306da;_0x4b51f7['addEventListener'](_0x1f2129(0x1e6),function(){const _0xcb204b=_0x1f2129;_0x13538b(_0xd35fec);for(var _0x3eb504=0x0;_0x3eb504<_0x24dcc8[_0xcb204b(0x232)];_0x3eb504++){_0x3eb504==_0xd35fec?_0x5e0c7d[_0xd35fec]===_0xcb204b(0x209)?document[_0xcb204b(0x1b6)](_0x3eb504)[_0xcb204b(0x1ee)][_0xcb204b(0x1b5)]['color']='#000':document['getElementById'](_0x3eb504)['parentElement'][_0xcb204b(0x1b5)]['color']=_0xcb204b(0x242):document[_0xcb204b(0x1b6)](_0x3eb504)[_0xcb204b(0x1ee)][_0xcb204b(0x1b5)][_0xcb204b(0x1b7)]=_0xcb204b(0x208);}});});}function showTherapyOptions(_0x2d2b3b){const _0x50b480=_0x6500,_0x343ad6=$(_0x2d2b3b)[_0x50b480(0x1e7)](),_0x1a9120=document[_0x50b480(0x22e)]('.therapistOptions');if(_0x343ad6==_0x50b480(0x21e))for(var _0xe59ea6=0x0;_0xe59ea6<_0x1a9120[_0x50b480(0x232)];_0xe59ea6++){_0x1a9120[_0xe59ea6]['style']['display']='flex';}else for(var _0xe59ea6=0x0;_0xe59ea6<_0x1a9120[_0x50b480(0x232)];_0xe59ea6++){_0x1a9120[_0xe59ea6]['style'][_0x50b480(0x1cc)]=_0x50b480(0x1e2);}}function isEmail(_0x30792e){var _0x670bb5=/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;return _0x670bb5['test'](_0x30792e);}const inputCreate=document[_0x3a7cd3(0x22e)](_0x3a7cd3(0x1c4));for(var i=0x0;i<inputCreate['length'];i++){inputCreate[i][_0x3a7cd3(0x227)](_0x3a7cd3(0x1ad),function(_0x12c191){const _0x42c67b=_0x3a7cd3;_0x12c191['key']===_0x42c67b(0x221)&&(_0x12c191[_0x42c67b(0x1f9)](),document[_0x42c67b(0x1b6)](_0x42c67b(0x20b))[_0x42c67b(0x1e6)]());});}const inputEdit=document[_0x3a7cd3(0x22e)](_0x3a7cd3(0x1a5));function _0x6500(_0x3ba3ca,_0x25ac59){const _0x2f398a=_0x2f39();return _0x6500=function(_0x65000d,_0xfda3e4){_0x65000d=_0x65000d-0x1a4;let _0x186ce9=_0x2f398a[_0x65000d];return _0x186ce9;},_0x6500(_0x3ba3ca,_0x25ac59);}for(var i=0x0;i<inputEdit['length'];i++){inputEdit[i][_0x3a7cd3(0x227)](_0x3a7cd3(0x1ad),function(_0x59e691){const _0x168d29=_0x3a7cd3;_0x59e691['key']===_0x168d29(0x221)&&(_0x59e691[_0x168d29(0x1f9)](),document[_0x168d29(0x1b6)](_0x168d29(0x1ff))[_0x168d29(0x1e6)]());});}
+$(document).ready(async function () {
+
+    /**
+     * AJAX call to retreive all users data and display it in the admin panel.
+     */
+    await $.ajax({
+        url: '/getAllUsersData',
+        type: "GET",
+        success: function (data) {
+            data.forEach(userData => {
+                var x = `<tr class="tableRows" id="${userData._id}">`;
+                x += `<td>${userData.firstName}</td>`;
+                x += `<td>${userData.lastName}</td>`
+                x += `<td>${userData.username}</td>`
+                x += `<td>${userData.email}</td>`
+                x += `<td>${userData.phoneNum}</td>`
+                x += `<td>${userData.userType.charAt(0).toUpperCase() + userData.userType.substring(1)}</td>`
+                x += `<td class="hiddenRow">${userData.yearsExperience}</td>`
+                x += `<td class="hiddenRow">${userData.sessionCost}</td>`
+                x += `<td>`
+                x += `<div class="dashSettings inactive">`
+                x += `<i class="bi bi-gear-fill"></i>`
+                x += `<i class="bi bi-pencil-fill settingIcon editUser"></i>`
+                x += `<i class="bi bi-trash-fill settingIcon deleteUser"></i>`
+                x += `</div>`
+                x += `</td>`
+                x += `</tr>`
+                $("tbody").append(x);
+            });
+            document.getElementById("resultsFound").innerHTML = data.length
+        }
+    });
+
+    /**
+     * Set the caret icons faced down by default.
+     */
+    document.getElementById('0').setAttribute("class", "bi bi-caret-down-fill");
+    document.getElementById('1').setAttribute("class", "bi bi-caret-down-fill");
+    document.getElementById('2').setAttribute("class", "bi bi-caret-down-fill");
+    document.getElementById('3').setAttribute("class", "bi bi-caret-down-fill");
+    document.getElementById('4').setAttribute("class", "bi bi-caret-down-fill");
+
+    /**
+     * Call sort table fucntion when user clicks table headings.
+     */
+    sortTable();
+
+    /**
+     * Variables for Create and Delete User Modal.
+     */
+    var createUserModal = document.getElementById("createUserModal");
+    var editUserModal = document.getElementById("editUserModal");
+    var deleteUserModal = document.getElementById("deleteUserModal");
+
+
+    /**
+     * 
+     * Display input field errors on profile page depending on which field was invalid.
+     * 
+     * @returns validated true if all fields are valid.
+     */
+    function createInputValidation() {
+        let validated = false;
+        var phoneLength = $("#phone").val();
+        if (phoneLength.length != 10) {
+            document.getElementById("createUserErrorMessage").style.display = 'block';
+            document.getElementById("createUserErrorMessage").innerHTML = "The phone number must be of length 10";
+        } else if (!isEmail($("#email").val())) {
+            document.getElementById("createUserErrorMessage").style.display = 'block';
+            document.getElementById("createUserErrorMessage").innerHTML = "Please follow this email pattern: example@email.com";
+        } else if (inputValidationCreate()) {
+            document.getElementById("createUserErrorMessage").style.display = 'block';
+            document.getElementById("createUserErrorMessage").innerHTML = "There are empty fields";
+        } else if (passwordValidationCreate()) {
+            document.getElementById("createUserErrorMessage").style.display = 'block';
+            document.getElementById("createUserErrorMessage").innerHTML = "Password must be at least 5 or less than 20 characters long";
+        } else if (negativeValidationcreate()) {
+            document.getElementById("createUserErrorMessage").style.display = 'block';
+            document.getElementById("createUserErrorMessage").innerHTML = "Experience or cost of session cannot be less than 0";
+        } else {
+            validated = true
+        }
+        return validated;
+    }
+
+    /**
+     * 
+     * Display input field errors on profile page depending on which field was invalid.
+     * 
+     * @param {*} data from form fields
+     * @returns validated true if all fields are valid.
+     */
+    function handleCreateResponse(data) {
+        if (data == "existingEmail") {
+            document.getElementById("createUserErrorMessage").style.display = 'block';
+            document.getElementById("createUserErrorMessage").innerHTML = "A user with that email already exists";
+        } else if (data == "existingPhone") {
+            document.getElementById("createUserErrorMessage").style.display = 'block';
+            document.getElementById("createUserErrorMessage").innerHTML = "A user with that phone number already exists";
+        } else if (data == "existingUsername") {
+            document.getElementById("createUserErrorMessage").style.display = 'block';
+            document.getElementById("createUserErrorMessage").innerHTML = "A user with that username already exists";
+        } else {
+            document.getElementById('dashboardSuccessModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                location.reload();
+            }, 2500);
+        }
+
+    }
+
+    /**
+     * If create button is clicked, display modal (form)
+     */
+    document.getElementById('createUser').onclick = function () {
+        createUserModal.style.display = "block";
+        document.body.style.overflow = 'hidden';
+        showTherapyOptions($("#userType"));
+        $('#createUserBtn').off();
+        $('#createUserBtn').click(() => {
+            if (createInputValidation()) {
+                /**
+                 * AJAX call to create a user with the values from the form admin fills out from the admin panel.
+                 */
+                $.ajax({
+                    url: '/createUser',
+                    type: 'POST',
+                    data: {
+                        firstname: $("#firstname").val().charAt(0).toUpperCase() + $("#firstname").val().substring(1),
+                        lastname: $("#lastname").val().charAt(0).toUpperCase() + $("#lastname").val().substring(1),
+                        username: $("#username").val().toLowerCase(),
+                        phone: $("#phone").val(),
+                        email: $("#email").val().toLowerCase(),
+                        userType: $("#userType").val(),
+                        yearsExperience: $("#yearsExperience").val(),
+                        sessionCost: $("#sessionCost").val(),
+                        password: $("#password").val(),
+                    },
+                    success: handleCreateResponse
+                })
+            }
+        });
+    }
+
+    /**
+     * 
+     * This function checks to see if the inputted values for the form fields
+     * are valid.
+     * 
+     * @returns true if there are validation errors
+     */
+    function inputValidationCreate() {
+        const inpObjFirstName = document.getElementById("firstname");
+        const inpObjLastName = document.getElementById("lastname");
+        const inpObjUsername = document.getElementById("username");
+        const inpObjExperience = document.getElementById("yearsExperience");
+        const inpObjSession = document.getElementById("sessionCost");
+        if (!inpObjFirstName.checkValidity() || !inpObjLastName.checkValidity() || !inpObjUsername.checkValidity()) {
+            return true;
+        } else if ($("#userType").val() == 'therapist' && (!inpObjExperience.checkValidity() || !inpObjSession.checkValidity())) {
+            return true;
+        }
+    }
+
+    /**
+     * 
+     * This function checks to see if the inputted value for password field
+     * is valid.
+     * 
+     * @returns true if password is invalid
+     */
+    function passwordValidationCreate() {
+        const inpObjPassword = document.getElementById("password");
+        if (!inpObjPassword.checkValidity()) {
+            return true;
+        }
+    }
+
+    /**
+     * 
+     * This function checks to see if the inputted values for sessionCost
+     * and yearsExperience fieldsa are valid.
+     * 
+     * @returns true if sessionCost or yearsExperience fields are invalid.
+     */
+    function negativeValidationcreate() {
+        const yearsExp = document.getElementById("yearsExperience").value;
+        const cost = document.getElementById("sessionCost").value;
+        if (yearsExp < 0 || cost < 0) {
+            return true;
+        }
+    }
+
+    /**
+     * 
+     * This function checks to see if the to be deleted user is the last
+     * administrator in the database.
+     * 
+     * @param {*} data as form field
+     * @returns error if the deletion fails
+     */
+    function handleDeleteResponse(data) {
+        if (data == 'lastAdmin') {
+            document.getElementById("deleteUserErrorMessage").style.display = 'block';
+            $('#deleteUserErrorMessage').html('Deletion failed. Database needs to have at least 1 administrator.')
+            return;
+        } else {
+            document.getElementById("deleteUserErrorMessage").style.display = 'none';
+            document.getElementById('dashboardSuccessModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        setTimeout(() => {
+            location.reload();
+        }, 2500);
+    }
+
+    /**
+     * Get all classnames to check which row was clicked to delete user.
+     */
+    const deleteUserBtns = document.querySelectorAll('.deleteUser');
+
+    /**
+     * Loop through each delete icon and set function to display modal.
+     */
+    for (var i = 0; i < deleteUserBtns.length; i++) {
+        deleteUserBtns[i].onclick = function (e) {
+            deleteUserModal.style.display = "block";
+            document.body.style.overflow = 'hidden';
+            document.getElementById("deleteUserErrorMessage").style.display = 'none';
+
+            // Store the closes table row that was clicked
+            const currentRow = this.closest('tr');
+
+            // Display username for the user's table row that was clicked
+            document.getElementById('deleteUsername').innerHTML = "@" + this.closest('tr').children[2].innerHTML;
+            let userType = currentRow.children[5].innerHTML.toLowerCase();
+            document.getElementById('deleteUserBtn').onclick = function () {
+                // Remove row and hide modal
+                $.ajax({
+                    url: '/deleteUser',
+                    type: 'DELETE',
+                    data: {
+                        id: currentRow.id,
+                        previousUserType: userType
+                    },
+                    success: handleDeleteResponse
+                })
+            }
+        }
+    }
+
+    /**
+     * 
+     * This function checks inputted values for form fields to make sure
+     * they are valid.
+     * 
+     * @returns true if there are validation errors
+     */
+    function editInputValidation() {
+        let validated = false;
+        var phoneLength = $("#editPhone").val();
+        if (phoneLength.length != 10) {
+            document.getElementById("editUserErrorMessage").style.display = 'block';
+            document.getElementById("editUserErrorMessage").innerHTML = "The phone number must be of length 10";
+        } else if (!isEmail($("#editEmail").val())) {
+            document.getElementById("editUserErrorMessage").style.display = 'block';
+            document.getElementById("editUserErrorMessage").innerHTML = "Please follow this email pattern: example@gmail.com";
+        } else if (inputValidationEdit()) {
+            document.getElementById("editUserErrorMessage").style.display = 'block';
+            document.getElementById("editUserErrorMessage").innerHTML = "There are empty fields.";
+        } else if (passwordValidationEdit()) {
+            document.getElementById("editUserErrorMessage").style.display = 'block';
+            document.getElementById("editUserErrorMessage").innerHTML = "Password must be at least 5 or less than 20 characters long";
+        } else if (negativeValidationEdit()) {
+            document.getElementById("editUserErrorMessage").style.display = 'block';
+            document.getElementById("editUserErrorMessage").innerHTML = "Experience or cost of session cannot be less than 0";
+        } else {
+            validated = true
+        }
+        return validated;
+    }
+
+    /**
+     * 
+     * This helper function checks inputted values for form fields to make sure
+     * they are valid.
+     * 
+     * @param {*} data as form field
+     */
+    function handleEditResponse(data) {
+        if (data == "existingEmail") {
+            document.getElementById("editUserErrorMessage").style.display = 'block';
+            $("#editUserErrorMessage").html("A user with that email already exists");
+        } else if (data == "existingPhone") {
+            document.getElementById("editUserErrorMessage").style.display = 'block';
+            $("#editUserErrorMessage").html("A user with that phone number already exists");
+        } else if (data == "existingUsername") {
+            document.getElementById("editUserErrorMessage").style.display = 'block';
+            $("#editUserErrorMessage").html("A user with that username already exists");
+        } else if (data == "updatedWithPassword") {
+            document.getElementById("editUserErrorMessage").style.display = 'none';
+            document.getElementById('dashboardSuccessModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                location.reload();
+            }, 2500);
+        } else if (data == 'lastAdmin') {
+            document.getElementById("editUserErrorMessage").style.display = 'block';
+            $("#editUserErrorMessage").html("Edit failed. Database needs to have at least 1 administrator.");
+        } else {
+            document.getElementById("editUserErrorMessage").style.display = 'none';
+            document.getElementById('dashboardSuccessModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                location.reload();
+            }, 2500);
+        }
+    }
+
+    /**
+     * 
+     * This helper function fetches and display each row (users) information
+     * from the database and displays them on the admin panel's edit user form.
+     * 
+     * @param {*} currentRow as the form field 
+     */
+    function setupEditModal(currentRow) {
+        document.getElementById("editUserErrorMessage").style.display = 'none';
+        document.getElementById('editFirstname').value = currentRow.children[0].innerHTML;
+        document.getElementById('editLastname').value = currentRow.children[1].innerHTML;
+        document.getElementById('editUsername').value = currentRow.children[2].innerHTML;
+        document.getElementById('editEmail').value = currentRow.children[3].innerHTML;
+        document.getElementById('editPhone').value = currentRow.children[4].innerHTML;
+        document.getElementById("editUserType").value = currentRow.children[5].innerHTML.toLowerCase();
+        document.getElementById('editYearsExperience').value = currentRow.children[6].innerHTML;
+        document.getElementById("editSessionCost").value = currentRow.children[7].innerHTML.toLowerCase();
+        document.getElementById("editPassword").value = "";
+        showTherapyOptions($("#editUserType"));
+    }
+
+    /**
+     * Get all classnames to check which row was clicked to edit user.
+     */
+    const editUserBtns = document.querySelectorAll('.editUser');
+
+    /**
+     * Loop through each edit icon and set function to display modal.
+     */
+    for (var i = 0; i < editUserBtns.length; i++) {
+        editUserBtns[i].onclick = function (e) {
+            editUserModal.style.display = "block";
+            document.body.style.overflow = 'hidden';
+            const currentRow = this.closest('tr');
+            let previousUserType = currentRow.children[5].innerHTML.toLowerCase();
+            setupEditModal(currentRow);
+            $('#editUserBtn').off();
+            $('#editUserBtn').click(() => {
+                if (editInputValidation()) {
+                    /**
+                     * AJAX call to edit a user with the values from the form admin fills out from the admin panel.
+                     */
+                    $.ajax({
+                        url: '/editUser',
+                        type: 'PUT',
+                        data: {
+                            id: currentRow.id,
+                            previousUserType: previousUserType,
+                            firstname: $("#editFirstname").val().charAt(0).toUpperCase() + $("#editFirstname").val().substring(1),
+                            lastname: $("#editLastname").val().charAt(0).toUpperCase() + $("#editLastname").val().substring(1),
+                            username: $("#editUsername").val().toLowerCase(),
+                            email: $("#editEmail").val().toLowerCase(),
+                            phone: $("#editPhone").val(),
+                            userType: $("#editUserType").val(),
+                            yearsExperience: $("#editYearsExperience").val(),
+                            sessionCost: $("#editSessionCost").val(),
+                            password: $("#editPassword").val()
+                        },
+                        success: handleEditResponse
+                    })
+                }
+            });
+        }
+    }
+
+    /**
+     * 
+     * This helper function checks the inputted valies from the form fields
+     * to make sure they are valid.
+     * 
+     * @returns true if the inputs are invalid
+     */
+    function inputValidationEdit() {
+        var currentType = document.getElementById("editUserType").value
+        const inpObjFirstName = document.getElementById("editFirstname");
+        const inpObjLastName = document.getElementById("editLastname");
+        const inpObjUsername = document.getElementById("editUsername");
+        const inpObjExperience = document.getElementById("editYearsExperience");
+        const inpObjSession = document.getElementById("editSessionCost");
+        if (currentType == "therapist") {
+            if (!inpObjFirstName.checkValidity() || !inpObjLastName.checkValidity() || !inpObjUsername.checkValidity() ||
+                !inpObjExperience.checkValidity() || !inpObjSession.checkValidity()) {
+                return true;
+            }
+        } else {
+            if (!inpObjFirstName.checkValidity() || !inpObjLastName.checkValidity() || !inpObjUsername.checkValidity()) {
+                return true;
+            }
+        }
+    }
+
+    /**
+     * 
+     * This helper function checks to see if the inputted value for the
+     * password field is valid.
+     * 
+     * @returns true if the input is invalid
+     */
+    function passwordValidationEdit() {
+        const inpObjPassword = document.getElementById("editPassword");
+        if (!inpObjPassword.checkValidity()) {
+            return true;
+        }
+    }
+
+    /**
+     * 
+     * This helper function checks to see if the inputted values for
+     * sessionCost and yearsExperience are valid.
+     * 
+     * @returns true if the inputs are invalid.
+     */
+    function negativeValidationEdit() {
+        const yearsExp = document.getElementById("editYearsExperience").value;
+        const cost = document.getElementById("editSessionCost").value;
+        if (yearsExp < 0 || cost < 0) {
+            return true;
+        }
+    }
+
+    /**
+     * If close icon is clicked, hide modal for Create User.
+     */
+    document.getElementById("closeCreate").onclick = function () {
+        createUserModal.style.display = "none";
+        document.body.style.overflow = 'auto';
+    }
+
+    /**
+     * If close icon is clicked, hide modal for Edit User.
+     */
+    document.getElementById("closeEdit").onclick = function () {
+        editUserModal.style.display = "none";
+        document.body.style.overflow = 'auto';
+    }
+
+    /**
+     * If cancel button is clicked, hide modal for Delete User.
+     */
+    document.getElementById("closeDelete").onclick = function () {
+        deleteUserModal.style.display = "none";
+        document.body.style.overflow = 'auto';
+    }
+
+    /**
+     * 
+     * If user clicks outside of the modal for both Create, Edit and Delete then hide modal.
+     * 
+     * @param {*} event as an eventlistened for what the user clicks
+     */
+    window.onclick = function (event) {
+        if (event.target == createUserModal) {
+            document.getElementById("createUserErrorMessage").style.display = 'none';
+            createUserModal.style.display = "none";
+            document.body.style.overflow = 'auto';
+        } else if (event.target == editUserModal) {
+            document.getElementById("editUserErrorMessage").style.display = 'none';
+            editUserModal.style.display = "none";
+            document.body.style.overflow = 'auto';
+        } else if (event.target == deleteUserModal) {
+            document.getElementById("deleteUserErrorMessage").style.display = 'none';
+            deleteUserModal.style.display = "none";
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    /**
+     * Get all settings icons from each row and iterate in a loop to check which one was clicked.
+     */
+    const dashSet = document.querySelectorAll('.dashSettings');
+    for (const set of dashSet) {
+        set.onclick = function () {
+            if (this.classList.contains('active') || this.classList.contains('inactive')) {
+
+                // Set the dashsettings icons as active and toggable
+                this.firstElementChild.classList.toggle('active');
+                if (this.children[1].classList.contains('active') ||
+                    this.children[1].classList.contains('inactive') ||
+                    this.children[2].classList.contains('active') ||
+                    this.children[2].classList.contains('inactive')) {
+                    this.children[1].classList.toggle('active');
+                    this.children[1].classList.toggle('inactive');
+                    this.children[2].classList.toggle('active');
+                    this.children[2].classList.toggle('inactive');
+                } else {
+                    this.children[1].classList.add('active');
+                    this.children[2].classList.add('active');
+                }
+            }
+        };
+    }
+});
+
+/**
+ * Live search function for table search.
+ */
+function searchTable() {
+    const searchInput = document.getElementById("searchbar").value.toUpperCase();
+    const table = document.getElementById("dashboardTable");
+    const trs = table.tBodies[0].getElementsByTagName("tr");
+    let count = 0;
+
+    // Loop through tbody's rows
+    for (var i = 0; i < trs.length; i++) {
+        var tds = trs[i].getElementsByTagName("td");
+        trs[i].style.display = "none";
+
+        // loop through row cells to check each element
+        for (var j = 0; j < tds.length; j++) {
+            // check if there's a match in the table
+            if (tds[j].innerHTML.toUpperCase().indexOf(searchInput) > -1) {
+                trs[i].style.display = "";
+                count++;
+                break;
+            }
+        }
+    }
+    $("#resultsFound").html(`${count}`);
+}
+
+/**
+ * Sort table function when table headings is clicked.
+ */
+function sortTable() {
+    const table = document.getElementById('dashboardTable');
+    const headers = table.querySelectorAll('.tHead');
+    const directions = Array.from(headers).map(function (header) {
+        return '';
+    });
+
+    const transform = function (index, content) {
+        const type = headers[index].getAttribute('data-type');
+        switch (type) {
+            case 'number':
+                return parseFloat(content);
+            case 'string':
+            default:
+                return content;
+        }
+    };
+
+    const tableBody = table.querySelector('tbody');
+    const rows = tableBody.querySelectorAll('tr');
+
+    const sortColumn = function (index) {
+        const direction = directions[index] || 'asc';
+        const multiplier = direction === 'asc' ? 1 : -1;
+        const newRows = Array.from(rows);
+
+        newRows.sort(function (rowA, rowB) {
+            const cellA = rowA.querySelectorAll('td')[index].innerHTML.toLowerCase();
+            const cellB = rowB.querySelectorAll('td')[index].innerHTML.toLowerCase();
+
+            const a = transform(index, cellA);
+            const b = transform(index, cellB);
+
+            switch (true) {
+                case a > b:
+                    return 1 * multiplier;
+                case a < b:
+                    return -1 * multiplier;
+                case a === b:
+                    return 0;
+            }
+        });
+
+        [].forEach.call(rows, function (row) {
+            tableBody.removeChild(row);
+        });
+
+        if (direction === 'asc') {
+            directions[index] = 'desc';
+            document.getElementById(index).setAttribute("class", "bi bi-caret-down-fill");
+
+        } else {
+            directions[index] = 'asc';
+            document.getElementById(index).setAttribute("class", "bi bi-caret-up-fill");
+        }
+
+        newRows.forEach(function (newRow) {
+            tableBody.appendChild(newRow);
+        });
+    };
+
+    [].forEach.call(headers, function (header, index) {
+        header.addEventListener('click', function () {
+            sortColumn(index);
+            for (var i = 0; i < headers.length; i++) {
+                if (i == index) {
+                    if (directions[index] === 'asc') {
+                        document.getElementById(i).parentElement.style.color = '#000';
+                    } else {
+                        document.getElementById(i).parentElement.style.color = '#09C5A3';
+                    }
+                } else {
+                    document.getElementById(i).parentElement.style.color = '#000';
+                }
+            }
+        });
+    });
+}
+
+/**
+ * 
+ * Display therapy field options if usertype is a therapist.
+ * 
+ * @param {*} selectObject as form field
+ */
+function showTherapyOptions(selectObject) {
+    const value = $(selectObject).val();
+    const therapyFieldOptions = document.querySelectorAll('.therapistOptions');
+    if (value == 'therapist') {
+        for (var i = 0; i < therapyFieldOptions.length; i++) {
+            therapyFieldOptions[i].style.display = 'flex';
+        }
+    } else {
+        for (var i = 0; i < therapyFieldOptions.length; i++) {
+            therapyFieldOptions[i].style.display = 'none';
+        }
+    }
+}
+
+/**
+ * 
+ * This function checks to see if the given email matches the pattern.
+ * 
+ * @param {*} email as form field
+ * @returns true if it matches the pattern, else false
+ */
+function isEmail(email) {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email);
+}
+
+/**
+ * Trigger click function for enter key for all input fields for create form.
+ */
+const inputCreate = document.querySelectorAll("#createUserForm .form-control");
+for (var i = 0; i < inputCreate.length; i++) {
+    inputCreate[i].addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            document.getElementById("createUserBtn").click();
+        }
+    });
+}
+
+/**
+ *  Trigger click function for enter key for all input fields for create form
+ */
+const inputEdit = document.querySelectorAll("#editUserForm .form-control");
+for (var i = 0; i < inputEdit.length; i++) {
+    inputEdit[i].addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            document.getElementById("editUserBtn").click();
+        }
+    });
+}

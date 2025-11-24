@@ -1,1 +1,305 @@
-const _0x1e764d=_0x4341;function _0x4341(_0x1d80e5,_0x2ca851){const _0x365d49=_0x365d();return _0x4341=function(_0x434155,_0x58f56d){_0x434155=_0x434155-0x165;let _0x1b46fa=_0x365d49[_0x434155];return _0x1b46fa;},_0x4341(_0x1d80e5,_0x2ca851);}(function(_0x716c1c,_0x559312){const _0x43f23a=_0x4341,_0x1c63fb=_0x716c1c();while(!![]){try{const _0x54153a=-parseInt(_0x43f23a(0x172))/0x1+-parseInt(_0x43f23a(0x1bf))/0x2+-parseInt(_0x43f23a(0x190))/0x3+parseInt(_0x43f23a(0x1c8))/0x4+-parseInt(_0x43f23a(0x16a))/0x5*(parseInt(_0x43f23a(0x1a1))/0x6)+parseInt(_0x43f23a(0x177))/0x7*(parseInt(_0x43f23a(0x195))/0x8)+parseInt(_0x43f23a(0x1c9))/0x9;if(_0x54153a===_0x559312)break;else _0x1c63fb['push'](_0x1c63fb['shift']());}catch(_0x5a3f7b){_0x1c63fb['push'](_0x1c63fb['shift']());}}}(_0x365d,0x50336));const orderRefundModal=document[_0x1e764d(0x17c)](_0x1e764d(0x1bc));$(document)[_0x1e764d(0x1a9)](async function(){const _0x56fdf6=_0x1e764d;function _0x43dd45(_0x1358bf){const _0x12a4ed=_0x4341;let _0x512734=_0x1358bf[_0x12a4ed(0x174)]()*0x3c*0x3e8,_0x56478b=new Date(_0x1358bf-_0x512734)[_0x12a4ed(0x1b6)]()['slice'](0x0,0xa);return _0x56478b;}function _0x273271(_0x594e1f,_0x419ab2){const _0x140d7d=_0x4341;let _0x16feff;var _0x2efa71=_0x140d7d(0x185);_0x2efa71+='<td>'+_0x43dd45(new Date(_0x419ab2[_0x140d7d(0x18b)]))+_0x140d7d(0x1bd),_0x2efa71+='<td>'+new Date(_0x419ab2['expiringTime'])[_0x140d7d(0x173)]('en-CA',{'hour':_0x140d7d(0x19e),'minute':_0x140d7d(0x19e),'hour12':!![]})+_0x140d7d(0x1bd),_0x2efa71+=_0x140d7d(0x169)+_0x594e1f['fullName']+_0x140d7d(0x1bd);if(_0x419ab2[_0x140d7d(0x17b)]==_0x140d7d(0x1cd))_0x2efa71+=_0x140d7d(0x1cb),_0x16feff=0x0;else{if(_0x419ab2[_0x140d7d(0x17b)]==_0x140d7d(0x168))_0x2efa71+=_0x140d7d(0x171),_0x16feff=0x1;else _0x419ab2[_0x140d7d(0x17b)]=='threeMonthPlan'?(_0x2efa71+=_0x140d7d(0x1a2),_0x16feff=0x3):(_0x2efa71+='<td>1\x20Year</td>',_0x16feff=0x6);}_0x2efa71+='<td>$'+parseFloat(_0x594e1f[_0x140d7d(0x1d0)]*_0x16feff*1.12)[_0x140d7d(0x19f)](0x2)+_0x140d7d(0x1bd),_0x2efa71+=_0x140d7d(0x169)+_0x419ab2[_0x140d7d(0x1b9)]+_0x140d7d(0x1bd);if(_0x419ab2[_0x140d7d(0x196)]==_0x140d7d(0x180))_0x2efa71+=_0x140d7d(0x1a6);else new Date(_0x419ab2['expiringTime'])>new Date()?_0x2efa71+=_0x140d7d(0x1ca):_0x2efa71+=_0x140d7d(0x183);$(_0x140d7d(0x1d2))[_0x140d7d(0x1c1)](_0x2efa71);}await $['ajax']({'url':_0x56fdf6(0x1c3),'type':_0x56fdf6(0x19c),'success':function(_0x54726d){const _0x4325fa=_0x56fdf6;_0x54726d[_0x4325fa(0x1c5)]>0x0&&(document['getElementById'](_0x4325fa(0x1c0))[_0x4325fa(0x16b)]['display']=_0x4325fa(0x1b5),document[_0x4325fa(0x17c)](_0x4325fa(0x1ac))[_0x4325fa(0x16b)][_0x4325fa(0x1b4)]=_0x4325fa(0x184),document[_0x4325fa(0x17c)]('orderTableContainer')[_0x4325fa(0x16b)][_0x4325fa(0x1b4)]=_0x4325fa(0x184),_0x54726d[_0x4325fa(0x1ab)](_0x4dc530=>{getTherapist(_0x4dc530,_0x273271);}),document[_0x4325fa(0x17c)]('resultsFound')[_0x4325fa(0x1b0)]=_0x54726d[_0x4325fa(0x1c5)]);}}),document[_0x56fdf6(0x17c)]('0')['setAttribute'](_0x56fdf6(0x18d),_0x56fdf6(0x1a5)),document[_0x56fdf6(0x17c)]('1')[_0x56fdf6(0x182)](_0x56fdf6(0x18d),_0x56fdf6(0x1a5)),document['getElementById']('2')[_0x56fdf6(0x182)](_0x56fdf6(0x18d),_0x56fdf6(0x1a5)),document[_0x56fdf6(0x17c)]('3')['setAttribute'](_0x56fdf6(0x18d),_0x56fdf6(0x1a5)),document[_0x56fdf6(0x17c)]('4')[_0x56fdf6(0x182)](_0x56fdf6(0x18d),_0x56fdf6(0x1a5)),document[_0x56fdf6(0x17c)]('5')[_0x56fdf6(0x182)](_0x56fdf6(0x18d),_0x56fdf6(0x1a5)),document[_0x56fdf6(0x17c)]('6')['setAttribute'](_0x56fdf6(0x18d),'bi\x20bi-caret-down-fill'),sortTable(),document[_0x56fdf6(0x17c)](_0x56fdf6(0x1d1))['onclick']=function(){const _0x484433=_0x56fdf6;setTimeout(()=>{const _0x116116=_0x4341;$[_0x116116(0x188)]('/activeSession',function(_0x249037){const _0x30041c=_0x116116;_0x249037==_0x30041c(0x19d)?(document[_0x30041c(0x17c)](_0x30041c(0x194))['style'][_0x30041c(0x1b4)]=_0x30041c(0x175),document[_0x30041c(0x17c)](_0x30041c(0x1b7))[_0x30041c(0x1b0)]=_0x30041c(0x165),document[_0x30041c(0x17c)](_0x30041c(0x178))[_0x30041c(0x1b0)]=_0x30041c(0x1c2),document[_0x30041c(0x17c)]('refundButtonsSec')['style'][_0x30041c(0x1b4)]='none'):($(_0x30041c(0x1be))[_0x30041c(0x1a7)](_0x249037[_0x30041c(0x197)]+'.'),$(_0x30041c(0x18f))[_0x30041c(0x1a7)]('$'+_0x249037[_0x30041c(0x1cc)]));}),orderRefundModal['style'][_0x116116(0x1b4)]='block',document[_0x116116(0x166)]['style'][_0x116116(0x16d)]=_0x116116(0x18c);},0x32),$('#orderRefundBtn')[_0x484433(0x167)](),$(_0x484433(0x193))[_0x484433(0x191)](()=>{const _0x51bb31=_0x484433;orderRefundModal[_0x51bb31(0x16b)][_0x51bb31(0x1b4)]=_0x51bb31(0x1b5),document[_0x51bb31(0x17c)]('signupSuccessModal')[_0x51bb31(0x16b)][_0x51bb31(0x1b4)]='flex',document[_0x51bb31(0x166)][_0x51bb31(0x16b)][_0x51bb31(0x16d)]=_0x51bb31(0x18c),setTimeout(()=>{const _0x4276c7=_0x51bb31;$[_0x4276c7(0x1aa)](_0x4276c7(0x198),function(){const _0x42f7dc=_0x4276c7;location[_0x42f7dc(0x187)]();});},0x9c4);});};});function getTherapist(_0x32d4d0,_0x5c6420){const _0x47118e=_0x1e764d;let _0x4606a4=_0x32d4d0[_0x47118e(0x199)],_0x33b902;$['ajax']({'url':_0x47118e(0x16f),'method':_0x47118e(0x189),'data':{'therapistId':_0x4606a4},'success':function(_0x3e4ee9){const _0x1ddc12=_0x47118e;_0x33b902={'fullName':_0x3e4ee9[_0x1ddc12(0x17a)]['charAt'](0x0)+'.\x20'+_0x3e4ee9[_0x1ddc12(0x1b2)],'sessionCost':_0x3e4ee9['sessionCost']},_0x5c6420(_0x33b902,_0x32d4d0);}});}function searchTable(){const _0x443dbb=_0x1e764d,_0xd52276=document['getElementById'](_0x443dbb(0x192))[_0x443dbb(0x1ae)][_0x443dbb(0x186)](),_0x1cad4b=document[_0x443dbb(0x17c)]('orderTable'),_0xcca7e3=_0x1cad4b['tBodies'][0x0][_0x443dbb(0x1cf)]('tr');let _0x5294c9=0x0;for(var _0x4475db=0x0;_0x4475db<_0xcca7e3['length'];_0x4475db++){var _0x4b3b4d=_0xcca7e3[_0x4475db][_0x443dbb(0x1cf)]('td');_0xcca7e3[_0x4475db][_0x443dbb(0x16b)][_0x443dbb(0x1b4)]=_0x443dbb(0x1b5);for(var _0x403da1=0x0;_0x403da1<_0x4b3b4d['length'];_0x403da1++){if(_0x4b3b4d[_0x403da1]['innerHTML'][_0x443dbb(0x186)]()[_0x443dbb(0x1a3)](_0xd52276)>-0x1){_0xcca7e3[_0x4475db][_0x443dbb(0x16b)][_0x443dbb(0x1b4)]='',_0x5294c9++;break;}}}$(_0x443dbb(0x1c6))['html'](''+_0x5294c9);}function sortTable(){const _0x33c98f=_0x1e764d,_0x14f335=document['getElementById'](_0x33c98f(0x17e)),_0x3721cd=_0x14f335['querySelectorAll'](_0x33c98f(0x179)),_0x2c755c=Array['from'](_0x3721cd)[_0x33c98f(0x19b)](function(_0x506d03){return'';}),_0xb48f3d=function(_0x34fe17,_0x3cbe95){const _0x1edf8d=_0x33c98f,_0x12a893=_0x3721cd[_0x34fe17][_0x1edf8d(0x18e)](_0x1edf8d(0x1bb));var _0x351085={};switch(_0x12a893){case _0x1edf8d(0x1a0):_0x3cbe95=_0x3cbe95[_0x1edf8d(0x1a8)](0x1);return parseFloat(_0x3cbe95);case'string':case'plan':_0x3cbe95=_0x3cbe95[_0x1edf8d(0x1a8)](0x2);return _0x3cbe95;default:return _0x3cbe95;}},_0x201d80=_0x14f335[_0x33c98f(0x1af)]('tbody'),_0x38b190=_0x201d80[_0x33c98f(0x1c7)](_0x33c98f(0x1a4)),_0x45bda8=function(_0x6def02){const _0x32ed5c=_0x33c98f,_0x55a384=_0x2c755c[_0x6def02]||'asc',_0x117d3f=_0x55a384===_0x32ed5c(0x19a)?0x1:-0x1,_0x5a8189=Array[_0x32ed5c(0x1b1)](_0x38b190);_0x5a8189[_0x32ed5c(0x181)](function(_0x15cf9,_0x2c75ea){const _0x57fbd9=_0x32ed5c,_0x365261=_0x15cf9[_0x57fbd9(0x1ce)]('td')[_0x6def02][_0x57fbd9(0x1b0)][_0x57fbd9(0x1c4)](),_0x1d77b7=_0x2c75ea['querySelectorAll']('td')[_0x6def02][_0x57fbd9(0x1b0)][_0x57fbd9(0x1c4)](),_0x4af1b3=_0xb48f3d(_0x6def02,_0x365261),_0x1719c0=_0xb48f3d(_0x6def02,_0x1d77b7);switch(!![]){case _0x4af1b3>_0x1719c0:return 0x1*_0x117d3f;case _0x4af1b3<_0x1719c0:return-0x1*_0x117d3f;case _0x4af1b3===_0x1719c0:return 0x0;}}),[][_0x32ed5c(0x1ab)][_0x32ed5c(0x1ad)](_0x38b190,function(_0x5343bc){_0x201d80['removeChild'](_0x5343bc);}),_0x55a384===_0x32ed5c(0x19a)?(_0x2c755c[_0x6def02]=_0x32ed5c(0x17d),document[_0x32ed5c(0x17c)](_0x6def02)[_0x32ed5c(0x182)]('class',_0x32ed5c(0x1a5))):(_0x2c755c[_0x6def02]='asc',document[_0x32ed5c(0x17c)](_0x6def02)[_0x32ed5c(0x182)](_0x32ed5c(0x18d),_0x32ed5c(0x16e))),_0x5a8189[_0x32ed5c(0x1ab)](function(_0xc41bd8){_0x201d80['appendChild'](_0xc41bd8);});};[][_0x33c98f(0x1ab)][_0x33c98f(0x1ad)](_0x3721cd,function(_0x2d19ec,_0x5189d0){const _0x4f6c3b=_0x33c98f;_0x2d19ec[_0x4f6c3b(0x1b3)](_0x4f6c3b(0x191),function(){const _0x5351ba=_0x4f6c3b;_0x45bda8(_0x5189d0);for(var _0x5b6cb7=0x0;_0x5b6cb7<_0x3721cd[_0x5351ba(0x1c5)];_0x5b6cb7++){_0x5b6cb7==_0x5189d0?_0x2c755c[_0x5189d0]===_0x5351ba(0x19a)?document[_0x5351ba(0x17c)](_0x5b6cb7)[_0x5351ba(0x18a)][_0x5351ba(0x16b)][_0x5351ba(0x17f)]=_0x5351ba(0x1b8):document[_0x5351ba(0x17c)](_0x5b6cb7)[_0x5351ba(0x18a)][_0x5351ba(0x16b)][_0x5351ba(0x17f)]=_0x5351ba(0x16c):document[_0x5351ba(0x17c)](_0x5b6cb7)[_0x5351ba(0x18a)][_0x5351ba(0x16b)][_0x5351ba(0x17f)]='#000';}});});}document[_0x1e764d(0x17c)](_0x1e764d(0x1ba))[_0x1e764d(0x176)]=function(){const _0x3a500f=_0x1e764d;orderRefundModal[_0x3a500f(0x16b)][_0x3a500f(0x1b4)]=_0x3a500f(0x1b5),document[_0x3a500f(0x166)][_0x3a500f(0x16b)][_0x3a500f(0x16d)]=_0x3a500f(0x170);},document[_0x1e764d(0x17c)]('closeRefundIcon')[_0x1e764d(0x176)]=function(){const _0x3077c8=_0x1e764d;orderRefundModal[_0x3077c8(0x16b)][_0x3077c8(0x1b4)]=_0x3077c8(0x1b5),document[_0x3077c8(0x166)][_0x3077c8(0x16b)][_0x3077c8(0x16d)]='auto';},window[_0x1e764d(0x176)]=function(_0x184660){const _0x317cd5=_0x1e764d;_0x184660['target']==orderRefundModal&&(orderRefundModal['style']['display']='none',document[_0x317cd5(0x166)][_0x317cd5(0x16b)][_0x317cd5(0x16d)]=_0x317cd5(0x170));};function _0x365d(){const _0x1eb8cc=['toFixed','number','1031502rslqEO','<td>3\x20Months</td>','indexOf','tableRows','bi\x20bi-caret-down-fill','<td>Refunded</td></tr>','text','substring','ready','post','forEach','orderToolbar','call','value','querySelector','innerHTML','from','lastName','addEventListener','display','none','toISOString','headerRefund','#000','orderId','closeRefund','data-type','orderRefundModal','</td>','#refundTherapist','439074tCYwsy','noOrderHistorySummary','append','You\x20have\x20no\x20active\x20session\x20at\x20this\x20time.\x20Please\x20place\x20an\x20order\x20from\x20our\x20<a\x20href=\x27/therapists\x27>Therapists</a>\x20page','/getPreviousPurchases','toLowerCase','length','#resultsFound','getElementsByClassName','2324232onWcon','8619534gBWazj','<td\x20class=\x22activeStatus\x22>Active</td></tr>','<td>Trial</td>','cost','freePlan','querySelectorAll','getElementsByTagName','sessionCost','refundBtn','tbody','No\x20active\x20orders\x20found','body','off','monthPlan','<td>','10GGUtis','style','#09C5A3','overflow','bi\x20bi-caret-up-fill','/getTherapistInfo','auto','<td>1\x20Month</td>','133629iPjfPd','toLocaleString','getTimezoneOffset','block','onclick','21VGSBjL','msgRefund','.tHead','firstName','timeLength','getElementById','desc','orderTable','color','refunded','sort','setAttribute','<td\x20class=\x22expiredStatus\x22>Expired</td></tr>','flex','<tr\x20class=\x22tableRows\x22>','toUpperCase','reload','get','POST','parentElement','purchased','hidden','class','getAttribute','#refundPrice','1874142uCnVOI','click','searchbar','#orderRefundBtn','modalHeader','297152WyejKe','status','therapistName','/refundOrder','therapist','asc','map','GET','NoActiveSession','numeric'];_0x365d=function(){return _0x1eb8cc;};return _0x365d();}
+/**
+ * Constant variable.
+ */
+const orderRefundModal = document.getElementById('orderRefundModal');
+
+$(document).ready(async function () {
+    /**
+     * 
+     * This helper function allows us to get an actual date with the proper timezone.
+     * 
+     * @param {*} purchasedDate as a DATE
+     * @returns the LocalISO time with proper timezone
+     */
+    function getActuatDate(purchasedDate) {
+        let offSet = purchasedDate.getTimezoneOffset() * 60 * 1000;
+        let tLocalISO = new Date(purchasedDate - offSet).toISOString().slice(0, 10);
+        return tLocalISO;
+    }
+
+    /**
+     * 
+     * This helper function populates all previous purchases with the therapists for the patient
+     * in a table as rows.
+     * 
+     * @param {*} therapistInfo as an object 
+     * @param {*} cartData as an object
+     */
+    function populateTherapist(therapistInfo, cartData) {
+        let multiplier;
+        var x = `<tr class="tableRows">`;
+        x += `<td>${getActuatDate(new Date(cartData.purchased))}</td>`;
+        x += `<td>${new Date(cartData.expiringTime).toLocaleString('en-CA', { hour: 'numeric', minute: 'numeric', hour12: true })}</td>`
+        x += `<td>${therapistInfo.fullName}</td>`
+        if (cartData.timeLength == 'freePlan') {
+            x += `<td>Trial</td>`
+            multiplier = 0;
+        } else if (cartData.timeLength == 'monthPlan') {
+            x += `<td>1 Month</td>`
+            multiplier = 1;
+        } else if (cartData.timeLength == 'threeMonthPlan') {
+            x += `<td>3 Months</td>`
+            multiplier = 3;
+        } else {
+            x += `<td>1 Year</td>`
+            multiplier = 6;
+        }
+        x += `<td>$${parseFloat(therapistInfo.sessionCost * multiplier * 1.12).toFixed(2)}</td>`
+        x += `<td>${cartData.orderId}</td>`
+        if (cartData.status == "refunded") {
+            x += `<td>Refunded</td></tr>`
+        } else if (new Date(cartData.expiringTime) > new Date()) {
+            x += `<td class="activeStatus">Active</td></tr>`
+        } else {
+            x += `<td class="expiredStatus">Expired</td></tr>`
+        }
+        $("tbody").append(x);
+    }
+
+    /**
+     * AJAX call that gets all previous purchases from the databsae and calls the helper function above to populate them.
+     */
+    await $.ajax({
+        url: '/getPreviousPurchases',
+        type: "GET",
+        success: function (data) {
+            if (data.length > 0) {
+                document.getElementById('noOrderHistorySummary').style.display = 'none';
+                document.getElementById('orderToolbar').style.display = 'flex';
+                document.getElementById('orderTableContainer').style.display = 'flex';
+
+                data.forEach(cartData => {
+                    getTherapist(cartData, populateTherapist)
+                });
+                document.getElementById("resultsFound").innerHTML = data.length;
+            }
+        }
+    });
+
+    /**
+     * Set the caret icons faced down by default.
+     */
+    document.getElementById('0').setAttribute("class", "bi bi-caret-down-fill");
+    document.getElementById('1').setAttribute("class", "bi bi-caret-down-fill");
+    document.getElementById('2').setAttribute("class", "bi bi-caret-down-fill");
+    document.getElementById('3').setAttribute("class", "bi bi-caret-down-fill");
+    document.getElementById('4').setAttribute("class", "bi bi-caret-down-fill");
+    document.getElementById('5').setAttribute("class", "bi bi-caret-down-fill");
+    document.getElementById('6').setAttribute("class", "bi bi-caret-down-fill");
+
+    /**
+     * Call sort table fucntion when user clicks table headings.
+     */
+    sortTable();
+
+    /**
+     * If create button is clicked, display modal (form).
+     */
+    document.getElementById('refundBtn').onclick = function () {
+        setTimeout(() => {
+            /**
+             * AJAX GET call that checks to see if the user already has an active session.
+             */
+            $.get('/activeSession', function (data) {
+                if (data == "NoActiveSession") {
+                    document.getElementById('modalHeader').style.display = 'block';
+                    document.getElementById("headerRefund").innerHTML = "No active orders found"
+                    document.getElementById("msgRefund").innerHTML = "You have no active session at this time. Please place an order from our <a href='/therapists'>Therapists</a> page"
+                    document.getElementById('refundButtonsSec').style.display = 'none';
+                } else {
+                    $("#refundTherapist").text(`${data.therapistName}.`);
+                    $("#refundPrice").text(`$${data.cost}`)
+                }
+            })
+            orderRefundModal.style.display = "block";
+            document.body.style.overflow = 'hidden';
+        }, 50);
+        $('#orderRefundBtn').off();
+        $('#orderRefundBtn').click(() => {
+            orderRefundModal.style.display = "none";
+            document.getElementById('signupSuccessModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                /**
+                 * AJAX POST call that allows user to refund their order.
+                 */
+                $.post('/refundOrder', function () {
+                    location.reload();
+                })
+            }, 2500);
+        });
+    }
+});
+
+/**
+ * 
+ * This function calls an AJAX call to get therapist information.
+ * 
+ * @param {*} cartData as object
+ * @param {*} callback as listener
+ */
+function getTherapist(cartData, callback) {
+    let therapistId = cartData.therapist
+    let therapistInfo;
+    /**
+     * AJAX call that gets the therapists information, adds the required info into an array
+     * and returns it back through the callback.
+     */
+    $.ajax({
+        url: '/getTherapistInfo',
+        method: "POST",
+        data: {
+            therapistId: therapistId
+        },
+        success: function (therapist) {
+            therapistInfo = {
+                fullName: `${therapist.firstName.charAt(0)}. ${therapist.lastName}`,
+                sessionCost: therapist.sessionCost
+            }
+            callback(therapistInfo, cartData);
+        }
+    })
+}
+
+/**
+ * Live search function for table search.
+ */
+function searchTable() {
+    const searchInput = document.getElementById("searchbar").value.toUpperCase();
+    const table = document.getElementById("orderTable");
+    const trs = table.tBodies[0].getElementsByTagName("tr");
+    let count = 0;
+
+    // Loop through tbody's rows
+    for (var i = 0; i < trs.length; i++) {
+        var tds = trs[i].getElementsByTagName("td");
+        trs[i].style.display = "none";
+
+        // loop through row cells to check each element
+        for (var j = 0; j < tds.length; j++) {
+            // check if there's a match in the table
+            if (tds[j].innerHTML.toUpperCase().indexOf(searchInput) > -1) {
+                trs[i].style.display = "";
+                count++;
+                break;
+            }
+        }
+    }
+    $("#resultsFound").html(`${count}`);
+}
+
+/**
+ * Sort table function when table headings is clicked.
+ */
+function sortTable() {
+    const table = document.getElementById('orderTable');
+    const headers = table.querySelectorAll('.tHead');
+    const directions = Array.from(headers).map(function (header) {
+        return '';
+    });
+
+    const transform = function (index, content) {
+        const type = headers[index].getAttribute('data-type');
+        var sort = {};
+        switch (type) {
+            case 'number':
+                content = content.substring(1);
+                return parseFloat(content);
+            case 'string':
+            case 'plan':
+                content = content.substring(2);
+                return content;
+            default:
+                return content;
+        }
+    };
+
+    const tableBody = table.querySelector('tbody');
+    const rows = tableBody.getElementsByClassName('tableRows');
+
+    const sortColumn = function (index) {
+        const direction = directions[index] || 'asc';
+        const multiplier = direction === 'asc' ? 1 : -1;
+        const newRows = Array.from(rows);
+
+        newRows.sort(function (rowA, rowB) {
+            const cellA = rowA.querySelectorAll('td')[index].innerHTML.toLowerCase();
+            const cellB = rowB.querySelectorAll('td')[index].innerHTML.toLowerCase();
+
+            const a = transform(index, cellA);
+            const b = transform(index, cellB);
+
+            switch (true) {
+                case a > b:
+                    return 1 * multiplier;
+                case a < b:
+                    return -1 * multiplier;
+                case a === b:
+                    return 0;
+            }
+        });
+
+        [].forEach.call(rows, function (row) {
+            tableBody.removeChild(row);
+        });
+
+        if (direction === 'asc') {
+            directions[index] = 'desc';
+            document.getElementById(index).setAttribute("class", "bi bi-caret-down-fill");
+
+        } else {
+            directions[index] = 'asc';
+            document.getElementById(index).setAttribute("class", "bi bi-caret-up-fill");
+        }
+
+        newRows.forEach(function (newRow) {
+            tableBody.appendChild(newRow);
+        });
+    };
+
+    [].forEach.call(headers, function (header, index) {
+        header.addEventListener('click', function () {
+            sortColumn(index);
+            for (var i = 0; i < headers.length; i++) {
+                if (i == index) {
+                    if (directions[index] === 'asc') {
+                        document.getElementById(i).parentElement.style.color = '#000';
+                    } else {
+                        document.getElementById(i).parentElement.style.color = '#09C5A3';
+                    }
+                } else {
+                    document.getElementById(i).parentElement.style.color = '#000';
+                }
+            }
+        });
+    });
+}
+
+/**
+ * If cancel button is clicked, hide modal for Delete User.
+ */
+document.getElementById("closeRefund").onclick = function () {
+    orderRefundModal.style.display = "none";
+    document.body.style.overflow = 'auto';
+}
+
+/**
+ * If cancel button is clicked, hide modal for Delete User.
+ */
+document.getElementById("closeRefundIcon").onclick = function () {
+    orderRefundModal.style.display = "none";
+    document.body.style.overflow = 'auto';
+}
+
+/**
+ * 
+ * If user clicks outside of the modal for both Create, Edit and Delete then hide modal
+ * 
+ * @param {*} event as event listener
+ */
+window.onclick = function (event) {
+    if (event.target == orderRefundModal) {
+        orderRefundModal.style.display = "none";
+        document.body.style.overflow = 'auto';
+    }
+}

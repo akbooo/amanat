@@ -1,1 +1,64 @@
-function _0x1100(){var _0x18d48b=['<div><a\x20href=\x22/therapists#3\x22>View\x20Therapist</a></div>','225858UakSCy','\x20years\x20of\x20experience</p>','117tiHnej','firstName','36968TfqueK','<div><a\x20href=\x22/therapists#2\x22>View\x20Therapist</a></div>','<h2>$','sessionCost','2870176xTlnsk','733320hbmZjb','</p>','Marker','GET','getElementById','<p>','<div\x20class=\x22therapyCard\x22>','<span>\x20/\x20session</span></h2>','153060daddzx','163254ZFaILY','30dENDTt','<div><a\x20href=\x22/therapists#1\x22>View\x20Therapist</a></div>','320919IikvZw','lastName','<h4>Therapist\x20Details</h4>','ajax','map','yearsExperience','</div>','/getTherapists','1FsegZh','initMap','therapistCards','innerHTML','maps'];_0x1100=function(){return _0x18d48b;};return _0x1100();}var _0x47f8a7=_0x5801;(function(_0x2cacbf,_0x28f8ed){var _0x24f161=_0x5801,_0x27bf7e=_0x2cacbf();while(!![]){try{var _0x783602=-parseInt(_0x24f161(0x185))/0x1*(parseInt(_0x24f161(0x16c))/0x2)+-parseInt(_0x24f161(0x17d))/0x3+-parseInt(_0x24f161(0x171))/0x4+parseInt(_0x24f161(0x17b))/0x5*(parseInt(_0x24f161(0x18b))/0x6)+-parseInt(_0x24f161(0x17a))/0x7+parseInt(_0x24f161(0x170))/0x8+-parseInt(_0x24f161(0x18d))/0x9*(-parseInt(_0x24f161(0x179))/0xa);if(_0x783602===_0x28f8ed)break;else _0x27bf7e['push'](_0x27bf7e['shift']());}catch(_0x3b4217){_0x27bf7e['push'](_0x27bf7e['shift']());}}}(_0x1100,0x6e3ab),$[_0x47f8a7(0x180)]({'url':_0x47f8a7(0x184),'type':_0x47f8a7(0x174),'success':handleGetTherapists}));function _0x5801(_0x5d0818,_0x2f4baa){var _0x110028=_0x1100();return _0x5801=function(_0x580187,_0x4768b7){_0x580187=_0x580187-0x16c;var _0x5c10c7=_0x110028[_0x580187];return _0x5c10c7;},_0x5801(_0x5d0818,_0x2f4baa);}function handleGetTherapists(_0x4416c5){var _0x735628=_0x47f8a7,_0x181e68=_0x4416c5[0x1],_0x394ddb=_0x4416c5[0x0],_0x200a53=_0x4416c5[0x2],_0x4e98a6=_0x735628(0x177);_0x4e98a6+=_0x735628(0x16e)+_0x181e68['sessionCost']+_0x735628(0x178),_0x4e98a6+=_0x735628(0x17f),_0x4e98a6+=_0x735628(0x176)+_0x181e68[_0x735628(0x18e)]+'\x20'+_0x181e68['lastName']+_0x735628(0x172),_0x4e98a6+=_0x735628(0x176)+_0x181e68[_0x735628(0x182)]+'\x20years\x20of\x20experience</p>',_0x4e98a6+=_0x735628(0x16d),_0x4e98a6+=_0x735628(0x183);var _0x130f1f='<div\x20class=\x22therapyCard\x20mainCard\x22>';_0x130f1f+=_0x735628(0x16e)+_0x394ddb[_0x735628(0x16f)]+'<span>\x20/\x20session</span></h2>',_0x130f1f+=_0x735628(0x17f),_0x130f1f+='<p>'+_0x394ddb[_0x735628(0x18e)]+'\x20'+_0x394ddb[_0x735628(0x17e)]+'</p>',_0x130f1f+='<p>'+_0x394ddb[_0x735628(0x182)]+_0x735628(0x18c),_0x130f1f+=_0x735628(0x17c),_0x130f1f+='</div>';var _0x23f84d='<div\x20class=\x22therapyCard\x22>';_0x23f84d+=_0x735628(0x16e)+_0x200a53['sessionCost']+'<span>\x20/\x20session</span></h2>',_0x23f84d+=_0x735628(0x17f),_0x23f84d+='<p>'+_0x200a53[_0x735628(0x18e)]+'\x20'+_0x200a53[_0x735628(0x17e)]+_0x735628(0x172),_0x23f84d+=_0x735628(0x176)+_0x200a53[_0x735628(0x182)]+_0x735628(0x18c),_0x23f84d+=_0x735628(0x18a),_0x23f84d+='</div>',document[_0x735628(0x175)]('therapistCards')[_0x735628(0x188)]+=_0x4e98a6,document[_0x735628(0x175)](_0x735628(0x187))[_0x735628(0x188)]+=_0x130f1f,document[_0x735628(0x175)](_0x735628(0x187))[_0x735628(0x188)]+=_0x23f84d;}function initMap(){var _0x1e3740=_0x47f8a7;const _0x2a6eea={'lat':49.2484615,'lng':-123.0048777},_0xcb3868=new google['maps']['Map'](document['getElementById'](_0x1e3740(0x181)),{'zoom':0xf,'center':_0x2a6eea}),_0x5b90f3=new google[(_0x1e3740(0x189))][(_0x1e3740(0x173))]({'position':_0x2a6eea,'map':_0xcb3868});}window[_0x47f8a7(0x186)]=initMap;
+/**
+ * AJAX call to get all therapists from the database and call the helper function.
+ */
+$.ajax({
+    url: '/getTherapists',
+    type: "GET",
+    success: handleGetTherapists
+})
+
+/**
+ * 
+ * This helper function will display the therapists on the home page based on their popularity.
+ * 
+ * @param {*} data as array of objects
+ */
+function handleGetTherapists(data) {
+    var firstCard = data[1];
+    var mainCard = data[0];
+    var thirdCard = data[2];
+    var x = '<div class="therapyCard">';
+    x += `<h2>$${firstCard.sessionCost}<span> / session</span></h2>`
+    x += '<h4>Therapist Details</h4>'
+    x += `<p>${firstCard.firstName} ${firstCard.lastName}</p>`
+    x += `<p>${firstCard.yearsExperience} years of experience</p>`
+    x += `<div><a href="/therapists#2">View Therapist</a></div>`
+    x += '</div>'
+    var y = '<div class="therapyCard mainCard">';
+    y += `<h2>$${mainCard.sessionCost}<span> / session</span></h2>`
+    y += '<h4>Therapist Details</h4>'
+    y += `<p>${mainCard.firstName} ${mainCard.lastName}</p>`
+    y += `<p>${mainCard.yearsExperience} years of experience</p>`
+    y += `<div><a href="/therapists#1">View Therapist</a></div>`
+    y += '</div>'
+    var z = '<div class="therapyCard">';
+    z += `<h2>$${thirdCard.sessionCost}<span> / session</span></h2>`
+    z += '<h4>Therapist Details</h4>'
+    z += `<p>${thirdCard.firstName} ${thirdCard.lastName}</p>`
+    z += `<p>${thirdCard.yearsExperience} years of experience</p>`
+    z += `<div><a href="/therapists#3">View Therapist</a></div>`
+    z += '</div>'
+    document.getElementById("therapistCards").innerHTML += x;
+    document.getElementById("therapistCards").innerHTML += y;
+    document.getElementById("therapistCards").innerHTML += z;
+}
+
+/**
+ * Google Maps API.
+ */
+function initMap() {
+    const uluru = {
+        lat: 49.2484615,
+        lng: -123.0048777
+    };
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 15,
+        center: uluru,
+    });
+    const marker = new google.maps.Marker({
+        position: uluru,
+        map: map,
+    });
+}
+
+window.initMap = initMap;
