@@ -215,6 +215,53 @@ $(document).ready(function () {
             ].join(''));
         });
 
+        // Server sends a summary-result event to the requesting client
+        socket.on('summary-result', (data) => {
+            var messagesContainer = $('#chatMessages');
+            if (data.status === 'sent') {
+                messagesContainer.append([
+                    `<li class="system">Summary emailed to ${data.email}</li>`
+                ].join(''));
+            } else if (data.status === 'saved') {
+                messagesContainer.append([
+                    `<li class="system">Summary could not be emailed; it was saved for you (id: ${data.id}) — <a href="#" class="view-summary" data-id="${data.id}">view</a></li>`
+                ].join(''));
+            } else {
+                messagesContainer.append([
+                    `<li class="system" style="color: #e63946;">Summary request failed: ${data.error || 'unknown error'}</li>`
+                ].join(''));
+            }
+
+            messagesContainer.finish().animate({
+                scrollTop: messagesContainer.prop("scrollHeight")
+            }, 500);
+        });
+
+        // Click handler to fetch and display a saved summary in the chat
+        $(document).on('click', '.view-summary', function (e) {
+            e.preventDefault();
+            const id = $(this).data('id');
+            if (!id) return;
+
+            const messagesContainer = $('#chatMessages');
+            $.ajax({
+                url: `/summary/${id}`,
+                method: 'GET',
+                success: function (data) {
+                    // Append the summary text as a system message
+                    const text = data.summary || 'No summary text available.';
+                    messagesContainer.append([
+                        `<li class="system">Saved summary (id: ${id}):<div style="margin-top:0.5rem;white-space:pre-wrap;">${text}</div></li>`
+                    ].join(''));
+                    messagesContainer.finish().animate({ scrollTop: messagesContainer.prop('scrollHeight') }, 500);
+                },
+                error: function (xhr) {
+                    const msg = (xhr && xhr.responseJSON && xhr.responseJSON.error) ? xhr.responseJSON.error : 'Failed to load summary.';
+                    messagesContainer.append([`<li class="system" style="color:#e63946;">${msg}</li>`].join(''));
+                }
+            });
+        });
+
         socket.on('connected', function (connectedId) {
             if (connectedId != data.currentId)
                 changeActiveState('Online');

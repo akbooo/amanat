@@ -391,6 +391,26 @@
     z-index: 99999;
 }
 
+/* Summaries modal */
+#summariesModal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.4);
+    z-index: 1000;
+}
+#summariesContent {
+    background: #fff;
+    padding: 1rem;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 8px;
+}
+.summaryItem button { padding: 0.3rem 0.5rem; border-radius: 4px; border: 1px solid #ccc; background: #f8f8f8; cursor:pointer; }
+.summaryItem button:disabled { opacity: 0.6; cursor: not-allowed; }
+
 #profileSuccessModal #profileSuccessContainer {
     width: 7rem;
     height: 8rem;

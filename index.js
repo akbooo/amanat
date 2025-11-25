@@ -6,6 +6,7 @@ const path = require('path');
 const session = require('express-session');
 const User = require("./models/BBY_31_users");
 const Chat = require("./models/BBY_31_messages");
+const Summary = require("./models/BBY_31_summaries");
 const Cart = require("./models/BBY_31_shoppingCarts");
 const mongoose = require("mongoose");
 const multer = require("multer");
@@ -18,6 +19,33 @@ const {
 } = require("socket.io");
 const io = new Server(server);
 const nodemailer = require('nodemailer');
+
+/**
+ * Create a nodemailer transporter that supports either explicit SMTP
+ * configuration (SMTP_HOST/SMTP_PORT/SMTP_SECURE) or named provider
+ * via MAIL_SERVICE (e.g. 'gmail', 'hotmail').
+ */
+function createMailerTransport() {
+    if (process.env.SMTP_HOST) {
+        return nodemailer.createTransport({
+            host: process.env.SMTP_HOST,
+            port: parseInt(process.env.SMTP_PORT || '587'),
+            secure: (String(process.env.SMTP_SECURE).toLowerCase() === 'true'),
+            auth: {
+                user: process.env.MAIL_USER,
+                pass: process.env.MAIL_PASS
+            }
+        });
+    }
+    const service = process.env.MAIL_SERVICE || 'hotmail';
+    return nodemailer.createTransport({
+        service: service,
+        auth: {
+            user: process.env.MAIL_USER,
+            pass: process.env.MAIL_PASS
+        }
+    });
+}
 
 /**
  * MangoDB connection.
@@ -1241,13 +1269,7 @@ function sendTherapistEmail(transporter, patientInfo, therapistInfo, cartInfo){
  * @param {*} cartInfo as an object that contains the order information
  */
 async function sendEmails(userId, therapistId, cartInfo) {
-    const transporter = nodemailer.createTransport({
-        service: 'hotmail',
-        auth: {
-            user: process.env.MAIL_USER,
-            pass: process.env.MAIL_PASS
-        }
-    });
+    const transporter = createMailerTransport();
 
     let patientInfo = await User.findById({
         _id: userId
@@ -1502,12 +1524,76 @@ io.on('connection', (socket) => {
     var userId;
     var orderID;
 
-    socket.on("chat message", function (msg, room) {
+    socket.on("chat message", async function (msg, room) {
 
         //broadcast message to everyone in port:8000 except yourself.
         socket.to(room).emit("chat message", {
             message: msg
         });
+
+        // If a patient types exactly "summary" (case-insensitive), generate a summary
+        // of the chat conversation and email it to the requesting patient. If the
+        // message is not a request for summary, proceed to save and broadcast.
+        const trimmed = String(msg || '').trim().toLowerCase();
+        if (trimmed === 'summary') {
+            try {
+                // confirm requester is a patient
+                let requester = await User.findById(userId).exec();
+                if (!requester || requester.userType !== 'patient') {
+                    // Ignore summary request from non-patients; notify requester
+                    socket.emit('summary-result', { status: 'error', error: 'Summary is only available for patients.' });
+                    return;
+                }
+
+                // load all messages for this order/room in chronological order
+                const messages = await Chat.find({ orderId: orderID }).sort({ createdAt: 'asc' }).exec();
+
+                // build array of messages text (up to last 100 messages to keep sizes reasonable)
+                const texts = messages.slice(-100).map(m => `${m.sender}: ${m.message}`);
+
+                // create a concise summary using OpenAI if configured, otherwise fallback
+                const summary = await generateSummaryText(texts);
+
+                // send summary by email to patient
+                const transporter = createMailerTransport();
+
+                const mailOpts = {
+                    from: process.env.MAIL_USER,
+                    to: requester.email,
+                    subject: 'Your chat summary',
+                    html: `<h3>Chat summary</h3><p>${summary.replace(/\n/g, '<br>')}</p>`
+                };
+
+                transporter.sendMail(mailOpts, function (err, info) {
+                    if (err) {
+                        // Log detailed error to server console for debugging.
+                        console.error('Error sending chat summary email:', err);
+
+                        // FALLBACK: store the summary in the DB for the patient so they can access it later
+                        Summary.create({ userId: requester._id, orderId: orderID, summary: summary })
+                            .then(saved => {
+                                socket.emit('summary-result', { status: 'saved', id: saved._id, message: 'Email failed — summary was saved to your account.' });
+                            })
+                            .catch(saveErr => {
+                                console.error('Failed to save summary fallback:', saveErr);
+                                socket.emit('summary-result', { status: 'error', error: 'Failed to send summary email and could not save it.' });
+                            });
+
+                    } else {
+                        // Log the SMTP response/info so we can inspect accepted/rejected recipients and messageId
+                        console.log('Summary email sent — nodemailer info:', info);
+                        socket.emit('summary-result', { status: 'sent', email: requester.email });
+                    }
+                });
+
+            } catch (e) {
+                console.log('Summary handling error:', e);
+                socket.emit('summary-result', { status: 'error', error: 'Something went wrong creating summary.' });
+            }
+
+            // Don't broadcast or save the literal "summary" message
+            return;
+        }
 
         //save chat to the database
         let connect = mongoose.connect(process.env.DATABASE_URL, {
@@ -1614,6 +1700,68 @@ function getTherapistChat(req, res, carts){
 }
 
 /**
+ * Generate a concise summary from an array of message strings.
+ * Uses OpenAI Chat Completions when OPENAI_API_KEY is configured, otherwise
+ * falls back to a simple local summarizer.
+ * @param {string[]} texts
+ * @returns {Promise<string>} summary
+ */
+async function generateSummaryText(texts){
+    const joined = texts.join('\n');
+
+    // If OpenAI key is set, use it
+    if (process.env.OPENAI_API_KEY) {
+        try {
+            // keep input length reasonable
+            const prompt = `You are a concise summarizer. Produce a short, neutral, clear summary (3-6 sentences) of the conversation below. Do not add medical advice or diagnoses. Only summarize messages content and themes.\n\nConversation:\n${joined}`;
+
+            const res = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
+                },
+                body: JSON.stringify({
+                    model: 'gpt-3.5-turbo',
+                    messages: [
+                        { role: 'system', content: 'You summarize conversations into concise, neutral summaries.' },
+                        { role: 'user', content: prompt }
+                    ],
+                    max_tokens: 500,
+                    temperature: 0.2
+                })
+            });
+
+            const json = await res.json();
+            if (json && json.choices && json.choices[0] && json.choices[0].message) {
+                return String(json.choices[0].message.content).trim();
+            }
+
+        } catch (e) {
+            console.log('OpenAI summarization failed:', e);
+            // fall through and use fallback summarizer
+        }
+    }
+
+    // Fallback: take the last non-empty lines and produce a short extract of content
+    try {
+        const last = texts.slice(-20).join(' ');
+        // simple heuristic: keep the first 400 characters broken into sentences
+        let candidate = last.replace(/\s+/g, ' ').trim();
+        if (candidate.length > 800) candidate = candidate.slice(candidate.length - 800);
+
+        // split into sentences and pick top 4 sentences heuristically (longest ones)
+        const sentences = candidate.match(/[^.!?]+[.!?]*/g) || [candidate];
+        sentences.sort((a,b) => b.length - a.length);
+        const pick = sentences.slice(0, 4).reverse().join(' ').trim();
+        const summary = pick || candidate.slice(0, 500) + (candidate.length > 500 ? '...' : '');
+        return summary;
+    } catch (e) {
+        return 'Summary unavailable.';
+    }
+}
+
+/**
  * 
  * This helper function fetcehes and returns a patient's information
  * to the chat page to display their information on the chat page in order
@@ -1650,6 +1798,194 @@ function getPatientChat(req, res, carts){
         }
     })
 }
+
+/**
+ * Return saved summaries for the logged-in user.
+ */
+app.get('/my-summaries', isLoggedIn, async (req, res) => {
+    try {
+        const userId = req.session.user._id;
+        const summaries = await Summary.find({ userId }).sort({ createdAt: -1 }).exec();
+        return res.json(summaries);
+    } catch (e) {
+        console.error('Error fetching user summaries:', e);
+        return res.status(500).json({ error: 'Unable to load summaries.' });
+    }
+});
+
+/**
+ * Return a single saved summary by id for the logged-in owner.
+ */
+app.get('/summary/:id', isLoggedIn, async (req, res) => {
+    try {
+        const id = req.params.id;
+        const saved = await Summary.findById(id).exec();
+        if (!saved) return res.status(404).json({ error: 'Summary not found.' });
+        // Protect access: only owner can read
+        if (String(saved.userId) !== String(req.session.user._id)) {
+            return res.status(403).json({ error: 'Forbidden' });
+        }
+        return res.json(saved);
+    } catch (e) {
+        console.error('Error fetching summary by id:', e);
+        return res.status(500).json({ error: 'Unable to fetch summary.' });
+    }
+});
+
+/**
+ * Regenerate a saved summary using existing chat messages for that order
+ * If OPENAI_API_KEY present, uses OpenAI; otherwise fallback summarizer.
+ */
+app.post('/summaries/:id/regenerate', isLoggedIn, async (req, res) => {
+    try {
+        const id = req.params.id;
+        const saved = await Summary.findById(id).exec();
+        if (!saved) return res.status(404).json({ error: 'Summary not found.' });
+        if (String(saved.userId) !== String(req.session.user._id)) return res.status(403).json({ error: 'Forbidden' });
+
+        // If we have an orderId, regenerate from the Chat messages for that order
+        let texts = [];
+        if (saved.orderId) {
+            const msgs = await Chat.find({ orderId: saved.orderId }).sort({ createdAt: 'asc' }).exec();
+            texts = msgs.slice(-100).map(m => `${m.sender}: ${m.message}`);
+        } else {
+            // If no orderId, use the existing summary content heuristically
+            texts = [saved.summary];
+        }
+
+        const newSummary = await generateSummaryText(texts);
+        saved.summary = newSummary;
+        await saved.save();
+        return res.json({ status: 'ok', summary: newSummary });
+    } catch (e) {
+        console.error('Error regenerating summary:', e);
+        return res.status(500).json({ error: 'Failed to regenerate summary.' });
+    }
+});
+
+/**
+ * Clean (dedupe/typo-fix) an existing saved summary text.
+ */
+app.post('/summaries/:id/clean', isLoggedIn, async (req, res) => {
+    try {
+        const id = req.params.id;
+        const saved = await Summary.findById(id).exec();
+        if (!saved) return res.status(404).json({ error: 'Summary not found.' });
+        if (String(saved.userId) !== String(req.session.user._id)) return res.status(403).json({ error: 'Forbidden' });
+
+        let text = String(saved.summary || '');
+        // Basic cleaning: normalize whitespace, remove duplicated sentences and common typos
+        text = text.replace(/\s+/g, ' ').trim();
+
+        // split sentences and dedupe adjacent duplicates and repeated phrases
+        const sentences = text.match(/[^.!?]+[.!?]*/g) || [text];
+        const cleanedSentences = [];
+        for (let s of sentences) {
+            s = s.trim();
+            // quick typo fixes
+            s = s.replace(/\bake care\b/gi, 'take care');
+            // skip if same as previous
+            if (cleanedSentences.length && cleanedSentences[cleanedSentences.length - 1].toLowerCase() === s.toLowerCase()) continue;
+            cleanedSentences.push(s);
+        }
+        const cleaned = cleanedSentences.join(' ').trim();
+        saved.summary = cleaned;
+        await saved.save();
+        return res.json({ status: 'ok', summary: cleaned });
+    } catch (e) {
+        console.error('Error cleaning summary:', e);
+        return res.status(500).json({ error: 'Failed to clean summary.' });
+    }
+});
+
+/**
+ * Resend a saved summary by email to its owner. Uses same fallback logic as creation.
+ */
+app.post('/summaries/:id/resend-email', isLoggedIn, async (req, res) => {
+    try {
+        const id = req.params.id;
+        const saved = await Summary.findById(id).exec();
+        if (!saved) return res.status(404).json({ error: 'Summary not found.' });
+        if (String(saved.userId) !== String(req.session.user._id)) return res.status(403).json({ error: 'Forbidden' });
+
+        const user = await User.findById({ _id: saved.userId }).exec();
+        if (!user) return res.status(404).json({ error: 'User not found.' });
+
+        const transporter = createMailerTransport();
+        const mail = {
+            from: process.env.MAIL_USER,
+            to: user.email,
+            subject: 'Your chat summary (resend)',
+            html: `<h3>Chat summary</h3><p>${String(saved.summary).replace(/\n/g,'<br>')}</p>`
+        };
+
+        transporter.sendMail(mail, async (err, info) => {
+            if (err) {
+                console.error('Resend summary email error:', err);
+                // if sending fails, return error with details
+                return res.status(500).json({ status: 'error', error: String(err) });
+            }
+            console.log('Resend summary email info:', info);
+            return res.json({ status: 'sent', info });
+        });
+
+    } catch (e) {
+        console.error('Error resending summary email:', e);
+        return res.status(500).json({ error: 'Failed to resend summary.' });
+    }
+});
+
+/**
+ * Delete a saved summary
+ */
+app.delete('/summaries/:id', isLoggedIn, async (req, res) => {
+    try {
+        const id = req.params.id;
+        const saved = await Summary.findById(id).exec();
+        if (!saved) return res.status(404).json({ error: 'Summary not found.' });
+        if (String(saved.userId) !== String(req.session.user._id)) return res.status(403).json({ error: 'Forbidden' });
+
+        await Summary.deleteOne({ _id: id }).exec();
+        return res.json({ status: 'deleted' });
+    } catch (e) {
+        console.error('Error deleting summary:', e);
+        return res.status(500).json({ error: 'Failed to delete summary.' });
+    }
+});
+
+/**
+ * Send a test email to the logged-in user's email address (diagnostic).
+ * Returns nodemailer info or error so you can debug SMTP delivery problems.
+ */
+app.post('/send-test-email', isLoggedIn, async (req, res) => {
+    try {
+        const userId = req.session.user._id;
+        const user = await User.findById({ _id: userId });
+        if (!user) return res.status(404).json({ error: 'User not found' });
+
+        const transporter = createMailerTransport();
+
+        const mail = {
+            from: process.env.MAIL_USER,
+            to: user.email,
+            subject: 'Test mail from Amanat (diagnostic)',
+            text: 'This is a test message to check your SMTP configuration.'
+        };
+
+        transporter.sendMail(mail, (err, info) => {
+            if (err) {
+                console.error('Test email send error:', err);
+                return res.status(500).json({ status: 'error', error: String(err) });
+            }
+            console.log('Test email info:', info);
+            return res.json({ status: 'sent', info });
+        });
+
+    } catch (e) {
+        console.error('send-test-email error:', e);
+        return res.status(500).json({ error: 'Unexpected error sending test email' });
+    }
+});
 
 /**
  * 

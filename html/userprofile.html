@@ -146,6 +146,8 @@
                 <div id="buttonSec">
                     <button type="submit" id="deleteAccount">Delete Account</button>
                     <button type="submit" id="saveChanges">Save</button>
+                    <button type="button" id="openSummaries">My Summaries</button>
+                    <button type="button" id="sendTestEmailBtn">Send test email</button>
                 </div>
 
                 <div id="contactInfoMob">
@@ -264,6 +266,17 @@
                     <button id="deleteAccountBtn">Delete</button>
                 </div>
                 <p id="deleteAccountErrorMessage">&nbsp;</p>
+            </div>
+        </div>
+
+        <!-- Summaries Modal -->
+        <div id="summariesModal" style="display:none;">
+            <div id="summariesContent">
+                <h2>Saved Summaries</h2>
+                <div id="summariesList" style="max-height:50vh;overflow:auto;padding:1rem;"></div>
+                <div style="display:flex;gap:0.5rem;margin-top:1rem;justify-content:flex-end;">
+                    <button id="closeSummaries">Close</button>
+                </div>
             </div>
         </div>
 

@@ -362,3 +362,139 @@ function ajaxDeleteUserAccunt() {
         }
     })
 }
+
+// --- Saved summaries UI & actions ---
+const summariesModal = document.getElementById('summariesModal');
+const summariesList = document.getElementById('summariesList');
+const openSummariesBtn = document.getElementById('openSummaries');
+const closeSummariesBtn = document.getElementById('closeSummaries');
+const sendTestEmailBtn = document.getElementById('sendTestEmailBtn');
+
+function renderSummaries(summaries) {
+    summariesList.innerHTML = '';
+    if (!summaries || summaries.length === 0) {
+        summariesList.innerHTML = '<p>No saved summaries.</p>';
+        return;
+    }
+    summaries.forEach(s => {
+        const container = document.createElement('div');
+        container.className = 'summaryItem';
+        container.style.border = '1px solid #ddd';
+        container.style.padding = '0.6rem';
+        container.style.marginBottom = '0.6rem';
+
+        const preview = document.createElement('div');
+        preview.innerHTML = `<strong>Saved:</strong> ${new Date(s.createdAt).toLocaleString()} <small style="color:#666;">id: ${s._id}</small>`;
+
+        const text = document.createElement('div');
+        text.style.marginTop = '0.5rem';
+        text.style.whiteSpace = 'pre-wrap';
+        text.innerText = s.summary.length > 300 ? s.summary.slice(0,300) + '...' : s.summary;
+
+        const actions = document.createElement('div');
+        actions.style.marginTop = '0.6rem';
+
+        // view
+        const viewBtn = document.createElement('button'); viewBtn.textContent = 'View';
+        viewBtn.onclick = () => {
+            text.innerText = s.summary;
+        }
+
+        // regenerate
+        const regenBtn = document.createElement('button'); regenBtn.textContent = 'Regenerate';
+        regenBtn.style.marginLeft = '0.5rem';
+        regenBtn.onclick = () => {
+            regenBtn.disabled = true;
+            $.post(`/summaries/${s._id}/regenerate`).done(function (data) {
+                if (data && data.summary) {
+                    s.summary = data.summary;
+                    text.innerText = data.summary;
+                }
+            }).fail(function (xhr) {
+                alert('Failed to regenerate: ' + (xhr.responseJSON && xhr.responseJSON.error ? xhr.responseJSON.error : 'unknown'));
+            }).always(() => regenBtn.disabled = false);
+        }
+
+        // clean
+        const cleanBtn = document.createElement('button'); cleanBtn.textContent = 'Clean';
+        cleanBtn.style.marginLeft = '0.5rem';
+        cleanBtn.onclick = () => {
+            cleanBtn.disabled = true;
+            $.post(`/summaries/${s._id}/clean`).done(function (data) {
+                if (data && data.summary) {
+                    s.summary = data.summary;
+                    text.innerText = data.summary;
+                }
+            }).fail(function (xhr) {
+                alert('Failed to clean: ' + (xhr.responseJSON && xhr.responseJSON.error ? xhr.responseJSON.error : 'unknown'));
+            }).always(() => cleanBtn.disabled = false);
+        }
+
+        // resend
+        const resendBtn = document.createElement('button'); resendBtn.textContent = 'Resend email';
+        resendBtn.style.marginLeft = '0.5rem';
+        resendBtn.onclick = () => {
+            resendBtn.disabled = true;
+            $.post(`/summaries/${s._id}/resend-email`).done(function (data) {
+                if (data && data.status === 'sent') {
+                    alert('Email sent');
+                } else {
+                    alert('Send failed: ' + (data.error || JSON.stringify(data)));
+                }
+            }).fail(function (xhr) {
+                alert('Failed to resend: ' + (xhr.responseJSON && xhr.responseJSON.error ? xhr.responseJSON.error : 'unknown'));
+            }).always(() => resendBtn.disabled = false);
+        }
+
+        // delete
+        const deleteBtn = document.createElement('button'); deleteBtn.textContent = 'Delete';
+        deleteBtn.style.marginLeft = '0.5rem';
+        deleteBtn.onclick = () => {
+            if (!confirm('Delete this saved summary?')) return;
+            deleteBtn.disabled = true;
+            $.ajax({ url: `/summaries/${s._id}`, method: 'DELETE' }).done(function (d) {
+                container.remove();
+            }).fail(function (xhr) {
+                alert('Failed to delete: ' + (xhr.responseJSON && xhr.responseJSON.error ? xhr.responseJSON.error : 'unknown'));
+                deleteBtn.disabled = false;
+            });
+        }
+
+        actions.appendChild(viewBtn);
+        actions.appendChild(regenBtn);
+        actions.appendChild(cleanBtn);
+        actions.appendChild(resendBtn);
+        actions.appendChild(deleteBtn);
+
+        container.appendChild(preview);
+        container.appendChild(text);
+        container.appendChild(actions);
+
+        summariesList.appendChild(container);
+    });
+}
+
+openSummariesBtn.onclick = function () {
+    summariesModal.style.display = 'block';
+    // fetch summaries
+    summariesList.innerHTML = 'Loading...';
+    $.get('/my-summaries').done(function (data) {
+        renderSummaries(data);
+    }).fail(function (xhr) {
+        summariesList.innerHTML = '<p style="color:red;">Failed to load summaries.</p>';
+    });
+}
+
+closeSummariesBtn.onclick = function () {
+    summariesModal.style.display = 'none';
+}
+
+// send test email
+sendTestEmailBtn.onclick = function () {
+    sendTestEmailBtn.disabled = true;
+    $.post('/send-test-email').done(function (data) {
+        alert('Test email status: ' + JSON.stringify(data));
+    }).fail(function (xhr) {
+        alert('Failed to send test email: ' + (xhr.responseJSON && xhr.responseJSON.error ? xhr.responseJSON.error : 'unknown'));
+    }).always(function () { sendTestEmailBtn.disabled = false; });
+}
