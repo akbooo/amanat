@@ -18,21 +18,21 @@ function handleGetTherapists(data) {
     var mainCard = data[0];
     var thirdCard = data[2];
     var x = '<div class="therapyCard">';
-    x += `<h2>$${firstCard.sessionCost}<span> / session</span></h2>`
+    x += `<h2>${firstCard.sessionCost}<span> / session</span></h2>`
     x += '<h4>Therapist Details</h4>'
     x += `<p>${firstCard.firstName} ${firstCard.lastName}</p>`
     x += `<p>${firstCard.yearsExperience} years of experience</p>`
     x += `<div><a href="/therapists#2">View Therapist</a></div>`
     x += '</div>'
     var y = '<div class="therapyCard mainCard">';
-    y += `<h2>$${mainCard.sessionCost}<span> / session</span></h2>`
+    y += `<h2>${mainCard.sessionCost}<span> / session</span></h2>`
     y += '<h4>Therapist Details</h4>'
     y += `<p>${mainCard.firstName} ${mainCard.lastName}</p>`
     y += `<p>${mainCard.yearsExperience} years of experience</p>`
     y += `<div><a href="/therapists#1">View Therapist</a></div>`
     y += '</div>'
     var z = '<div class="therapyCard">';
-    z += `<h2>$${thirdCard.sessionCost}<span> / session</span></h2>`
+    z += `<h2>${thirdCard.sessionCost}<span> / session</span></h2>`
     z += '<h4>Therapist Details</h4>'
     z += `<p>${thirdCard.firstName} ${thirdCard.lastName}</p>`
     z += `<p>${thirdCard.yearsExperience} years of experience</p>`
@@ -47,17 +47,17 @@ function handleGetTherapists(data) {
  * Google Maps API.
  */
 function initMap() {
-    const uluru = {
-        lat: 49.2484615,
-        lng: -123.0048777
-    };
+    const sdu = { lat: 43.207562, lng: 76.669111 };
+
     const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 15,
-        center: uluru,
+        center: sdu
     });
-    const marker = new google.maps.Marker({
-        position: uluru,
+
+    new google.maps.Marker({
+        position: sdu,
         map: map,
+        title: "SDU University (СДУ, Каскелен)"
     });
 }
 

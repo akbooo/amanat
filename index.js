@@ -1577,15 +1577,33 @@ function getTherapistChat(req, res, carts){
         _id: userId
     }, function (err, user) {
         if (err) console.log(err)
-        if (user) {
+            if (user) {
+            // For privacy: if the logged-in user is a therapist we must not expose
+            // the patient's real PII (name, phone, profile image) in the chat header.
+            // Return anonymized/blank values in that case. Patients (or non-therapists)
+            // still receive the therapist's real info.
+
+            let displayName = user.firstName + " " + user.lastName;
+            let displayPhone = user.phoneNum;
+            let displayImage = user.profileImg;
+
+            // getTherapistChat is invoked when the logged-in user is the therapist.
+            // Hide patient identifying information for therapists.
+            if (req && req.session && req.session.user && req.session.user.userType === 'therapist') {
+                displayName = 'Anonymous Patient';
+                displayPhone = '';
+                // Use a neutral placeholder image that exists in the project to avoid broken img links
+                displayImage = '/images/placeholder-profile.jpg';
+            }
+
             chatInfo = {
                 purchased: purchased,
                 orderId: orderId,
                 therapistId: therapistId,
                 userId: userId,
-                name: user.firstName + " " + user.lastName,
-                phone: user.phoneNum,
-                image: user.profileImg,
+                name: displayName,
+                phone: displayPhone,
+                image: displayImage,
                 sender: therapistId,
                 currentId: req.session.user._id,
                 other: userId

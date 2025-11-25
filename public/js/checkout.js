@@ -37,7 +37,7 @@ function getTherapist(therapistId) {
         },
         success: function (therapist) {
             $('#therapistName').text(`${therapist.firstName} ${therapist.lastName}`)
-            $('#therapistDesc').text(`${therapist.yearsExperience} years of experience in the profession, and offers $${therapist.sessionCost} per session`)
+            $('#therapistDesc').text(`${therapist.yearsExperience} years of experience in the profession, and offers ${therapist.sessionCost} per session`)
             $('#therapistImg').attr('src', `${therapist.profileImg}`)
             therapistInformation = therapist;
             therapistInformation._id = therapistId;
@@ -53,8 +53,8 @@ function getTherapist(therapistId) {
             }
             $("#cartCost").html(`${parseFloat(therapistInformation.sessionCost * multiplier).toFixed(2)}`)
             $("#subTotal").html(`${parseFloat(therapistInformation.sessionCost * multiplier).toFixed(2)}`)
-            $("#taxTotal").html(`$${parseFloat(therapistInformation.sessionCost * multiplier * 0.12).toFixed(2)}`)
-            $("#total").html(`$${parseFloat(therapistInformation.sessionCost * multiplier * 1.12).toFixed(2)}`)
+            $("#taxTotal").html(`${parseFloat(therapistInformation.sessionCost * multiplier * 0.12).toFixed(2)}`)
+            $("#total").html(`${parseFloat(therapistInformation.sessionCost * multiplier * 1.12).toFixed(2)}`)
         }
     })
 }
@@ -86,8 +86,8 @@ function updateCart() {
                 }
                 $("#cartCost").html(`${parseFloat(therapistInformation.sessionCost * multiplier).toFixed(2)}`)
                 $("#subTotal").html(`${parseFloat(therapistInformation.sessionCost * multiplier).toFixed(2)}`)
-                $("#taxTotal").html(`$${parseFloat(therapistInformation.sessionCost * multiplier * 0.12).toFixed(2)}`)
-                $("#total").html(`$${parseFloat(therapistInformation.sessionCost * multiplier * 1.12).toFixed(2)}`)
+                $("#taxTotal").html(`${parseFloat(therapistInformation.sessionCost * multiplier * 0.12).toFixed(2)}`)
+                $("#total").html(`${parseFloat(therapistInformation.sessionCost * multiplier * 1.12).toFixed(2)}`)
             }
         })
     })

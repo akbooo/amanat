@@ -29,7 +29,7 @@ $(document).ready(async function () {
                 x += `<img src="${Therapist.profileImg}" alt="Therapist 1">`
                 x += '<div class="cardContent">'
                 x += `<h3>${Therapist.firstName} ${Therapist.lastName}</h3>`
-                x += `<p>${Therapist.yearsExperience} years of experience in the profession, and offers $${Therapist.sessionCost} per session</p>`
+                x += `<p>${Therapist.yearsExperience} years of experience in the profession, and offers ${Therapist.sessionCost} per session</p>`
                 x += `<div><button class="therapistBtn" id="${Therapist._id}">Purchase Session</button></div>`
                 x += '</div>'
                 x += '</div>'

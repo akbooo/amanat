@@ -15,7 +15,7 @@ $(document).ready(async function () {
         let tLocalISO = new Date(purchasedDate - offSet).toISOString().slice(0, 10);
         x += `<td>${tLocalISO}</td>`;
         x += `<td>${new Date(cartData.purchased).toLocaleString('en-CA', { hour: 'numeric', minute: 'numeric', hour12: true })}</td>`
-        x += `<td>${patientInfo.fullName}</td>`
+        x += `<td>-</td>`
         if (cartData.timeLength == 'freePlan') {
             x += `<td>Trial</td>`
             multiplier = 0;
@@ -29,7 +29,7 @@ $(document).ready(async function () {
             x += `<td>1 Year</td>`
             multiplier = 6;
         }
-        x += `<td>$${parseFloat(patientInfo.sessionCost * multiplier * 1.12).toFixed(2)}</td>`
+        x += `<td>${parseFloat(patientInfo.sessionCost * multiplier * 1.12).toFixed(2)}</td>`
         x += `<td>${cartData.orderId}</td>`
         if (cartData.status == "refunded") {
             x += `<td>Refunded</td></tr>`

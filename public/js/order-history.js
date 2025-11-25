@@ -44,7 +44,7 @@ $(document).ready(async function () {
             x += `<td>1 Year</td>`
             multiplier = 6;
         }
-        x += `<td>$${parseFloat(therapistInfo.sessionCost * multiplier * 1.12).toFixed(2)}</td>`
+        x += `<td>${parseFloat(therapistInfo.sessionCost * multiplier * 1.12).toFixed(2)}</td>`
         x += `<td>${cartData.orderId}</td>`
         if (cartData.status == "refunded") {
             x += `<td>Refunded</td></tr>`
@@ -108,7 +108,7 @@ $(document).ready(async function () {
                     document.getElementById('refundButtonsSec').style.display = 'none';
                 } else {
                     $("#refundTherapist").text(`${data.therapistName}.`);
-                    $("#refundPrice").text(`$${data.cost}`)
+                    $("#refundPrice").text(`${data.cost}`)
                 }
             })
             orderRefundModal.style.display = "block";

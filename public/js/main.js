@@ -245,9 +245,24 @@ $(document).ready(function () {
                 chatSetup();
                 orderId = data.orderId;
                 socketSetup(data);
-                $("#chatName").text(`${data.name}`)
-                $("#chatPhone").attr("href", `tel:${data.phone}`)
-                $("#chatImg").attr("src", `${data.image}`)
+                // Display name as provided. The server may anonymize patient details
+                // (e.g. when the logged-in user is a therapist) so guard against
+                // empty/blank values for phone/image and avoid creating broken links.
+                $("#chatName").text(data.name || '')
+
+                if (data.phone) {
+                    $("#chatPhone").attr("href", `tel:${data.phone}`).show();
+                } else {
+                    // hide phone icon if no phone available
+                    $("#chatPhone").attr("href", "#").hide();
+                }
+
+                if (data.image) {
+                    $("#chatImg").attr("src", data.image);
+                } else {
+                    // use placeholder when actual image isn't available
+                    $("#chatImg").attr("src", "/images/placeholder-profile.jpg");
+                }
             }
         }
     })
