@@ -1,10 +1,7 @@
 var therapistInformation;
 var totalPrice;
 $(document).ready(async function () {
-    /**
-     * AJAX call that checks the status of a cart to see if
-     * there is an item that exist in the shopping cart.
-     */
+    
     await $.ajax({
         url: '/checkStatus',
         method: 'GET',
@@ -59,12 +56,7 @@ function getTherapist(therapistId) {
     })
 }
 
-/**
- * This function allows users to change their shopping cart's timelength.
- * It has an AJAX call that changes the timelength for the user's shopping cart
- * in the database so when the order is confirmed the expiring time changes
- * corrosponding to the timelength.
- */
+
 function updateCart() {
     $('#cartPlan').change(() => {
         $.ajax({
@@ -93,18 +85,14 @@ function updateCart() {
     })
 }
 
-/**
- * Variables for Delete User Modal.
- */
+
 var removeOrderModal = document.getElementById("removeOrderModal");
 document.getElementById('removeItem').onclick = function (e) {
     removeOrderModal.style.display = "block";
     document.body.style.overflow = 'hidden';
 
     document.getElementById('removeOrderBtn').onclick = function () {
-        /**
-         * AJAX call that deletes a item from the shopping cart and changes the status of the cart.
-         */
+        
         $.ajax({
             url: '/deleteCart',
             type: 'DELETE',
@@ -120,9 +108,7 @@ document.getElementById('removeItem').onclick = function (e) {
     }
 }
 
-/**
- * If cancel button is clicked, hide modal for Delete User
- */
+
 document.getElementById("cancelRemove").onclick = function () {
     removeOrderModal.style.display = "none";
     document.body.style.overflow = 'auto';
@@ -165,28 +151,20 @@ function handleConfirmOrder(data) {
     }
 }
 
-/**
- * This onclick calls the AJAX call that confirms an order. Before
- * calling the AJAX call it will check the timeLength the user
- * chose for their session. It will then change the expiring time
- * of the cart based on the timeLength when confirm order is done.
- */
 document.getElementById('confirmOrder').onclick = function () {
     const time = new Date();
     var timeLengthforUse;
     var selectedTime = $('#cartPlan').val();
     if (selectedTime == "freePlan") {
-        timeLengthforUse = new Date(time.setMinutes(time.getMinutes() + 3));
+        timeLengthforUse = new Date(time.setMinutes(time.getMinutes() + 60));
     } else if (selectedTime == "monthPlan") {
-        timeLengthforUse = new Date(time.setMinutes(time.getMinutes() + 5));
+        timeLengthforUse = new Date(time.setMinutes(time.getMinutes() + 60));
     } else if (selectedTime == "threeMonthPlan") {
-        timeLengthforUse = new Date(time.setMinutes(time.getMinutes() + 10));
+        timeLengthforUse = new Date(time.setMinutes(time.getMinutes() + 60));
     } else if (selectedTime == "yearPlan") {
-        timeLengthforUse = new Date(time.setMinutes(time.getMinutes() + 15));
+        timeLengthforUse = new Date(time.setMinutes(time.getMinutes() + 60));
     }
-    /**
-     * AJAX call that will confirm the order in the database and start the session for the user.
-     */
+    
     $.ajax({
         url: "/confirmCart",
         method: "POST",

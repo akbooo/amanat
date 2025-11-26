@@ -1,6 +1,3 @@
-/**
- * AJAX call to get all therapists from the database and call the helper function.
- */
 $.ajax({
     url: '/getTherapists',
     type: "GET",
@@ -43,9 +40,7 @@ function handleGetTherapists(data) {
     document.getElementById("therapistCards").innerHTML += z;
 }
 
-/**
- * Google Maps API.
- */
+
 function initMap() {
     const sdu = { lat: 43.207562, lng: 76.669111 };
 

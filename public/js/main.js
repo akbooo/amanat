@@ -1,7 +1,4 @@
 $(document).ready(function () {
-    /**
-     * Constant variables.
-     */
     const navMenu = document.getElementById('nav-menu');
     const navToggle = document.getElementById('nav-toggle');
     const navClose = document.getElementById('nav-close');
@@ -11,59 +8,38 @@ $(document).ready(function () {
     var element;
     const chatExpiredModal = document.getElementById('chatExpiredModal');
 
-    /**
-     * Load the Navbar and Footer.
-     */
     loadNavbarFooter();
 
-    /**
-     * Display Patient navbar.
-     */
     function patientNavbarSetup() {
         var patientEls = document.querySelectorAll(".isPatient");
         for (var x = 0; x < patientEls.length; x++)
             patientEls[x].style.display = 'list-item';
     }
 
-    /**
-     * Display Therapist navbar.
-     */
     function therapistNavbarSetup() {
         let therapistEls = document.querySelectorAll(".isTherapist");
         for (var x = 0; x < therapistEls.length; x++)
             therapistEls[x].style.display = 'list-item';
     }
 
-    /**
-     * Display Admin navbar.
-     */
     function adminNavbarSetup() {
         let adminEls = document.querySelectorAll(".isAdmin");
         for (var x = 0; x < adminEls.length; x++)
             adminEls[x].style.display = 'list-item';
     }
 
-    /**
-     * Display Logged In navbar for standard users.
-     */
     function loggedInNavbarSetup() {
         let loggedInEls = document.querySelectorAll(".isLoggedIn");
         for (var x = 0; x < loggedInEls.length; x++)
             loggedInEls[x].style.display = 'list-item';
     }
 
-    /**
-     * Display logged out navbar.
-     */
     function loggedOutNavbarSetup() {
         let loggedOutEls = document.querySelectorAll(".isLoggedOut")
         for (var x = 0; x < loggedOutEls.length; x++)
             loggedOutEls[x].style.display = 'list-item';
     }
 
-    /**
-     * GET call from server to check which user type has logged in to display its dedicated navbar.
-     */
     setTimeout(() => {
         $.get('/isLoggedIn', function (user) {
             if (user) {
@@ -88,46 +64,29 @@ $(document).ready(function () {
 
     }, 50);
 
-    /**
-     * Display hashed password for signup and login form.
-     */
     displayPassword();
 
-    /* Show Menu */
-    /**
-     * Validation if constant var exists.
-     */
     if (navToggle) {
         navToggle.addEventListener('click', function () {
             navMenu.classList.add('show-menu');
         });
     }
 
-    /* Hide Menu */
-    /**
-     * Validation if constant var exists.
-     */
     if (navClose) {
         navClose.addEventListener('click', function () {
             navMenu.classList.remove('show-menu');
         });
     }
 
-    /**
-     * Load the Navbar and Footer.
-     */
     function loadNavbarFooter() {
         $('#navPlaceHolder').load('../temp/nav.html', function () {
-            // For mobile nav links
             $('.nav-item .nav-link').each(function () {
                 $(this).toggleClass('active', this.getAttribute('href') === location.pathname);
             });
-            // For mobile nav icons
             $('.nav-link .nav-icon').each(function () {
                 $(this).toggleClass('active', this.getAttribute('href') === location.pathname);
             });
 
-            // For desktop nav links
             $('.navLinks a').each(function () {
                 $(this).toggleClass('active', this.getAttribute('href') === location.pathname);
             });
@@ -136,9 +95,6 @@ $(document).ready(function () {
         $('#therapistChat').load('../temp/chatbox.html');
     }
 
-    /**
-     * Display hashed password for signup and login form.
-     */
     function displayPassword() {
         $("#show-hide-password .input-group-addon a").on('click', function (event) {
             event.preventDefault();
@@ -154,17 +110,10 @@ $(document).ready(function () {
         });
     }
 
-    /**
-     * Remove Menu Mobile.
-     */
     function linkAction() {
-        // When clicked on each nav link, remove the show menu class
         document.getElementById('nav-menu').classList.remove('show-menu');
     }
 
-    /**
-     * For mobile nav, each clic on a link will close the nav menu on selected pages.
-     */
     navLink.forEach(n => n.addEventListener('click', linkAction));
 
     /**
@@ -215,7 +164,6 @@ $(document).ready(function () {
             ].join(''));
         });
 
-        // Server sends a summary-result event to the requesting client
         socket.on('summary-result', (data) => {
             var messagesContainer = $('#chatMessages');
             if (data.status === 'sent') {
@@ -237,7 +185,6 @@ $(document).ready(function () {
             }, 500);
         });
 
-        // Click handler to fetch and display a saved summary in the chat
         $(document).on('click', '.view-summary', function (e) {
             e.preventDefault();
             const id = $(this).data('id');
@@ -248,7 +195,6 @@ $(document).ready(function () {
                 url: `/summary/${id}`,
                 method: 'GET',
                 success: function (data) {
-                    // Append the summary text as a system message
                     const text = data.summary || 'No summary text available.';
                     messagesContainer.append([
                         `<li class="system">Saved summary (id: ${id}):<div style="margin-top:0.5rem;white-space:pre-wrap;">${text}</div></li>`
@@ -273,9 +219,6 @@ $(document).ready(function () {
 
     }
 
-    /**
-     * AJAX GET to check active session.
-     */
     $.get('/activeChatSession', function (data) {
         if (data == "NoActiveSession" || data == "notLoggedIn") {
             $('#therapistChat').hide();
@@ -300,14 +243,12 @@ $(document).ready(function () {
                 if (data.phone) {
                     $("#chatPhone").attr("href", `tel:${data.phone}`).show();
                 } else {
-                    // hide phone icon if no phone available
                     $("#chatPhone").attr("href", "#").hide();
                 }
 
                 if (data.image) {
                     $("#chatImg").attr("src", data.image);
                 } else {
-                    // use placeholder when actual image isn't available
                     $("#chatImg").attr("src", "/images/placeholder-profile.jpg");
                 }
             }
@@ -315,10 +256,6 @@ $(document).ready(function () {
     })
 
 
-
-    /**
-     * Get and display session expiring time.
-     */
     setInterval(getSessionEndTime, 1000);
 
     function getSessionEndTime() {
@@ -351,11 +288,7 @@ $(document).ready(function () {
         })
     }
 
-    /**
-     * This function sets up the chat room for patient and therapist if they are in the chat-session page.
-     */
     function chatSetup() {
-        // Chat Page for mobile
         if (window.location.pathname == '/chat-session') {
             element = $('#wrapper');
             var messages = element.find('#chatMessages');
@@ -374,16 +307,12 @@ $(document).ready(function () {
                 this.style.height = (this.scrollHeight + 2) + "px";
             });
         } else {
-            // Chat Box for desktop
             element = $('#therapistChat');
             element.addClass('enter');
             element.click(openElement);
         }
     }
 
-    /**
-     * If the user click on the "typing" area, open a container to allow users to type.
-     */
     function openElement() {
         var messages = element.find('#chatMessages');
         var textInput = element.find('#chatbox');
@@ -409,9 +338,6 @@ $(document).ready(function () {
         });
     }
 
-    /**
-     * If the user click away from the "typing" area, close the container to disallow the user to type.
-     */
     function closeElement() {
         element.find('.chatContainer').removeClass('enter').hide();
         element.find('#chatMsgIcon').show();
@@ -425,9 +351,6 @@ $(document).ready(function () {
         }, 500);
     }
 
-    /**
-     * call openElement function if the user is on thank-you page and their clientWidth is 992.
-     */
     if (window.location.pathname == '/thank-you') {
         document.getElementById('startSessionBtn').onclick = function () {
             if (document.body.clientWidth >= 992) {

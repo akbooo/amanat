@@ -1526,18 +1526,13 @@ io.on('connection', (socket) => {
 
     socket.on("chat message", async function (msg, room) {
 
-        //broadcast message to everyone in port:8000 except yourself.
         socket.to(room).emit("chat message", {
             message: msg
         });
 
-        // If a patient types exactly "summary" (case-insensitive), generate a summary
-        // of the chat conversation and email it to the requesting patient. If the
-        // message is not a request for summary, proceed to save and broadcast.
         const trimmed = String(msg || '').trim().toLowerCase();
         if (trimmed === 'summary') {
             try {
-                // confirm requester is a patient
                 let requester = await User.findById(userId).exec();
                 if (!requester || requester.userType !== 'patient') {
                     // Ignore summary request from non-patients; notify requester
@@ -1551,10 +1546,8 @@ io.on('connection', (socket) => {
                 // build array of messages text (up to last 100 messages to keep sizes reasonable)
                 const texts = messages.slice(-100).map(m => `${m.sender}: ${m.message}`);
 
-                // create a concise summary using OpenAI if configured, otherwise fallback
                 const summary = await generateSummaryText(texts);
 
-                // send summary by email to patient
                 const transporter = createMailerTransport();
 
                 const mailOpts = {
@@ -1566,10 +1559,8 @@ io.on('connection', (socket) => {
 
                 transporter.sendMail(mailOpts, function (err, info) {
                     if (err) {
-                        // Log detailed error to server console for debugging.
                         console.error('Error sending chat summary email:', err);
 
-                        // FALLBACK: store the summary in the DB for the patient so they can access it later
                         Summary.create({ userId: requester._id, orderId: orderID, summary: summary })
                             .then(saved => {
                                 socket.emit('summary-result', { status: 'saved', id: saved._id, message: 'Email failed — summary was saved to your account.' });
@@ -1580,7 +1571,6 @@ io.on('connection', (socket) => {
                             });
 
                     } else {
-                        // Log the SMTP response/info so we can inspect accepted/rejected recipients and messageId
                         console.log('Summary email sent — nodemailer info:', info);
                         socket.emit('summary-result', { status: 'sent', email: requester.email });
                     }
@@ -1591,7 +1581,6 @@ io.on('connection', (socket) => {
                 socket.emit('summary-result', { status: 'error', error: 'Something went wrong creating summary.' });
             }
 
-            // Don't broadcast or save the literal "summary" message
             return;
         }
 
@@ -1649,9 +1638,9 @@ io.on('connection', (socket) => {
  * to the chat page to display their information on the chat page in order
  * to send messages.
  * 
- * @param {*} req as request object
- * @param {*} res as response object
- * @param {*} carts as object array
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} carts 
  */
 function getTherapistChat(req, res, carts){
     var orderId = carts.orderId;
@@ -1664,21 +1653,15 @@ function getTherapistChat(req, res, carts){
     }, function (err, user) {
         if (err) console.log(err)
             if (user) {
-            // For privacy: if the logged-in user is a therapist we must not expose
-            // the patient's real PII (name, phone, profile image) in the chat header.
-            // Return anonymized/blank values in that case. Patients (or non-therapists)
-            // still receive the therapist's real info.
+            // For privacy
 
             let displayName = user.firstName + " " + user.lastName;
             let displayPhone = user.phoneNum;
             let displayImage = user.profileImg;
 
-            // getTherapistChat is invoked when the logged-in user is the therapist.
-            // Hide patient identifying information for therapists.
             if (req && req.session && req.session.user && req.session.user.userType === 'therapist') {
                 displayName = 'Anonymous Patient';
                 displayPhone = '';
-                // Use a neutral placeholder image that exists in the project to avoid broken img links
                 displayImage = '/images/placeholder-profile.jpg';
             }
 
@@ -1709,10 +1692,8 @@ function getTherapistChat(req, res, carts){
 async function generateSummaryText(texts){
     const joined = texts.join('\n');
 
-    // If OpenAI key is set, use it
     if (process.env.OPENAI_API_KEY) {
         try {
-            // keep input length reasonable
             const prompt = `You are a concise summarizer. Produce a short, neutral, clear summary (3-6 sentences) of the conversation below. Do not add medical advice or diagnoses. Only summarize messages content and themes.\n\nConversation:\n${joined}`;
 
             const res = await fetch('https://api.openai.com/v1/chat/completions', {

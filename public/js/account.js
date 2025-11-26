@@ -1,21 +1,15 @@
-/**
- * Helper variables to get certain values from forms.
- */
+
 var profileImgBtn = document.getElementById('profileImage');
 var profileFile = document.getElementById('profileFile');
 const deleteUserModal = document.getElementById("deleteAccountModal");
 var currentType;
 
-/**
- * When profile image clicked, call onclick function for uploading image file.
- */
+
 profileImgBtn.addEventListener('click', function () {
     profileFile.click();
 });
 
-/**
- * Image uploader function that allows user to choose an image locally to uplaod and update their profile picture.
- */
+
 profileFile.addEventListener('change', function () {
     const choosedFile = this.files[0];
     if (choosedFile) {
@@ -63,11 +57,7 @@ $.ajax({
     }
 });
 
-/**
- * Retrieving user's profile picture from database and linking the src to display image
- * Putting in timeout with a small margin delay is needed to shift the loading time 
- * so it wouldn't load everything at once.
- */
+
 setTimeout(() => {
     $.ajax({
         url: '/getProfilePicture',
@@ -79,9 +69,7 @@ setTimeout(() => {
     })
 }, 50);
 
-/**
- * Hide error messages by default.
- */
+
 function hideErrorMessages() {
     document.getElementById("phoneErrorMessage").style.display = 'none';
     document.getElementById("emailErrorMessage").style.display = 'none';
@@ -93,7 +81,7 @@ function hideErrorMessages() {
  * 
  * Display input field errors on profile page depending on which field was invalid.
  * 
- * @param {*} data from form fields
+ * @param {*} data 
  * @returns validated true if all fields are valid.
  */
 function serverInputValidation(data) {
@@ -122,13 +110,11 @@ function serverInputValidation(data) {
 
 /**
  * 
- * Display animation for when user clicks save changes.
+ * Displaying animation for when user clicks save changes.
  * 
  * @param {*} data from form fields
  */
 function handleEditSuccess(data) {
-    // If password is empty then simply refresh the page, 
-    // if password is changed then log the user out back to login page
     if (data == "updated") {
         if (document.getElementById("password").value == "") {
             hideErrorMessages();
@@ -151,9 +137,7 @@ function handleEditSuccess(data) {
     }
 }
 
-/**
- * Edit Profile AJAX call to format the field values when user enters valid fields and clicks save changes.
- */
+
 function editProfile() {
     $.ajax({
         url: '/editProfile',
@@ -176,9 +160,7 @@ function editProfile() {
     })
 }
 
-/**
- * Save changes on profile page.
- */
+
 $('#saveChanges').click(() => {
     var phoneLength = $("#phone").val();
     if (phoneLength.length != 10) {
@@ -205,7 +187,6 @@ $('#saveChanges').click(() => {
         document.getElementById("validationErrorMessage").style.display = 'block';
         document.getElementById("validationErrorMessage").innerHTML = "Password must be at least 5 or less than 20 characters long";
     } else {
-        // If all validation checks then call AJAX call to update the database for the new changes on profile page
         editProfile();
     }
 });
@@ -291,28 +272,23 @@ for (var i = 0; i < input.length; i++) {
  */
 if (window.location.pathname == '/userprofile') {
 
-    // If delete account is clicked for desktop account page, then display the confirmation modal 
     document.getElementById('deleteAccount').onclick = function (e) {
         displayDeleteUserModal();
 
-        // When user confirms the deletion for the account, display a message and redirect user back to login page
         document.getElementById('deleteAccountBtn').onclick = function () {
             document.getElementById("deleteAccountErrorMessage").style.display = 'none';
             ajaxDeleteUserAccunt();
         }
     }
 
-    // If delete account is clicked for mobile account page, then display the confirmation modal
     document.getElementById('mobDeleteAccount').onclick = function (e) {
         displayDeleteUserModal();
     }
 
-    // If cancel button is clicked, hide modal for Delete User
     document.getElementById("closeDelete").onclick = function () {
         hideDeleteUserModal();
     }
 
-    // If user clicks outside of the modal for both Create and Delete then hide modal
     window.onclick = function (event) {
         if (event.target == deleteUserModal) {
             hideDeleteUserModal();
@@ -320,17 +296,13 @@ if (window.location.pathname == '/userprofile') {
     }
 }
 
-/**
- * Display the delete user modal
- */
+
 function displayDeleteUserModal() {
     deleteUserModal.style.display = "block";
     document.body.style.overflow = 'hidden';
 }
 
-/**
- * Hide the delete user modal
- */
+
 function hideDeleteUserModal() {
     deleteUserModal.style.display = "none";
     document.body.style.overflow = 'auto';
@@ -347,7 +319,6 @@ function ajaxDeleteUserAccunt() {
         url: '/deleteUserProfile',
         type: 'DELETE',
         success: function (data) {
-            // If user is the last admin, then display message to alert they are the last admin and cannot be deleted
             if (data == 'lastAdmin') {
                 document.getElementById("deleteAccountErrorMessage").style.display = 'block';
                 $('#deleteAccountErrorMessage').html('Deletion failed. Database needs to have at least 1 administrator.')
@@ -363,7 +334,6 @@ function ajaxDeleteUserAccunt() {
     })
 }
 
-// --- Saved summaries UI & actions ---
 const summariesModal = document.getElementById('summariesModal');
 const summariesList = document.getElementById('summariesList');
 const openSummariesBtn = document.getElementById('openSummaries');
@@ -476,7 +446,6 @@ function renderSummaries(summaries) {
 
 openSummariesBtn.onclick = function () {
     summariesModal.style.display = 'block';
-    // fetch summaries
     summariesList.innerHTML = 'Loading...';
     $.get('/my-summaries').done(function (data) {
         renderSummaries(data);
@@ -489,7 +458,6 @@ closeSummariesBtn.onclick = function () {
     summariesModal.style.display = 'none';
 }
 
-// send test email
 sendTestEmailBtn.onclick = function () {
     sendTestEmailBtn.disabled = true;
     $.post('/send-test-email').done(function (data) {

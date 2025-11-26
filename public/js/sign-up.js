@@ -1,6 +1,3 @@
-/**
- * Constant variables.
- */
 const batmanAnimation = document.getElementById('batmanImg');
 const batmanSec = document.getElementById('batmanImg');
 
@@ -70,9 +67,6 @@ function handleSignUpResponse(data) {
     }
 }
 
-/**
- * AJAX call that signs up the user if input validations and duplicate records are cleared.
- */
 $('#signupBtn').click(() => {
     if (clientInputValidation()) {
         $.ajax({
@@ -93,18 +87,10 @@ $('#signupBtn').click(() => {
     }
 });
 
-/**
- * Set for every second.
- */
+
 setInterval(eastereEgg, 1000);
 
-/**
- * Easter egg function.
- */
 var doOnce = false;
-/**
- * This function plays an animation when the username field includes the word 'batman'.
- */
 function eastereEgg() {
     $('#username').keyup(function () {
         var userField = $(this).val().toLowerCase();

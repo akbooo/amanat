@@ -2,7 +2,7 @@ $(document).ready(async function () {
 
     /**
      * 
-     * This function will populate the table in the html page after fetching all the data from the database.
+     * populating the table in the html page after fetching all the data from the database.
      * 
      * @param {*} cartData as object
      * @param {*} patientInfo as array
@@ -39,10 +39,7 @@ $(document).ready(async function () {
         $("tbody").append(x);
     }
 
-    /**
-     * AJAX call that finds all previous patients for a certain therapists
-     * and calls the populatepatients helper function to display them.
-     */
+    
     await $.ajax({
         url: '/getPreviousPatients',
         type: "GET",
@@ -60,9 +57,7 @@ $(document).ready(async function () {
         }
     });
 
-    /**
-     * Set the caret icons faced down by default
-     */
+    
     document.getElementById('0').setAttribute("class", "bi bi-caret-down-fill");
     document.getElementById('1').setAttribute("class", "bi bi-caret-down-fill");
     document.getElementById('2').setAttribute("class", "bi bi-caret-down-fill");
@@ -71,9 +66,7 @@ $(document).ready(async function () {
     document.getElementById('5').setAttribute("class", "bi bi-caret-down-fill");
     document.getElementById('6').setAttribute("class", "bi bi-caret-down-fill");
 
-    /**
-     * Call sort table fucntion when user clicks table headings.
-     */
+    
     sortTable();
 });
 
@@ -88,9 +81,7 @@ function getPatient(cartData, callback) {
     let userId = cartData.userId
     let therapistId = cartData.therapist
     let patientInfo;
-    /**
-     * AJAX call that gets the patient information.
-     */
+    
     $.ajax({
         url: '/getPatientInfo',
         method: "POST",
@@ -101,10 +92,7 @@ function getPatient(cartData, callback) {
             patientInfo = {
                 fullName: `${patient.firstName.charAt(0)}. ${patient.lastName}`
             }
-            /**
-             * AJAX call that gets the therapist's information from the cart
-             * and returns it along with the patient information from previous AJAX call.
-             */
+            
             $.ajax({
                 url: '/getTherapistInfo',
                 method: "POST",
@@ -120,21 +108,17 @@ function getPatient(cartData, callback) {
     })
 }
 
-/**
- * Live search function for table search.
- */
+
 function searchTable() {
     const searchInput = document.getElementById("searchbar").value.toUpperCase();
     const table = document.getElementById("patientTable");
     const trs = table.tBodies[0].getElementsByTagName("tr");
     let count = 0;
 
-    // Loop through tbody's rows
     for (var i = 0; i < trs.length; i++) {
         var tds = trs[i].getElementsByTagName("td");
         trs[i].style.display = "none";
 
-        // loop through row cells to check each element
         for (var j = 0; j < tds.length; j++) {
             // check if there's a match in the table
             if (tds[j].innerHTML.toUpperCase().indexOf(searchInput) > -1) {
@@ -147,9 +131,7 @@ function searchTable() {
     $("#resultsFound").html(`${count}`);
 }
 
-/**
- * Sort table function when table headings is clicked.
- */
+
 function sortTable() {
     const table = document.getElementById('patientTable');
     const headers = table.querySelectorAll('.tHead');

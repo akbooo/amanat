@@ -30,14 +30,7 @@ function loginHandler(data) {
     }
 }
 
-/**
- * This onclick function will call the /login AJAX call.
- */
 $('#loginBtn').click(() => {
-    /**
-     * AJAX that sends the values from email and password fields to /login and if the
-     * email and password match the databse records call the helper function.
-     */
     $.ajax({
         url: '/login',
         type: 'POST',
@@ -49,9 +42,7 @@ $('#loginBtn').click(() => {
     })
 });
 
-/**
- * Trigger click function for enter key for all input fields.
- */
+
 const input = document.querySelectorAll(".form-control");
 for (var i = 0; i < input.length; i++) {
     input[i].addEventListener("keypress", function (e) {

@@ -1,7 +1,7 @@
 $(document).ready(async function () {
 
     /**
-     * AJAX call to retreive all users data and display it in the admin panel.
+     * retreiving all users data and display it in the admin panel.
      */
     await $.ajax({
         url: '/getAllUsersData',
@@ -31,23 +31,17 @@ $(document).ready(async function () {
         }
     });
 
-    /**
-     * Set the caret icons faced down by default.
-     */
+    
     document.getElementById('0').setAttribute("class", "bi bi-caret-down-fill");
     document.getElementById('1').setAttribute("class", "bi bi-caret-down-fill");
     document.getElementById('2').setAttribute("class", "bi bi-caret-down-fill");
     document.getElementById('3').setAttribute("class", "bi bi-caret-down-fill");
     document.getElementById('4').setAttribute("class", "bi bi-caret-down-fill");
 
-    /**
-     * Call sort table fucntion when user clicks table headings.
-     */
+    
     sortTable();
 
-    /**
-     * Variables for Create and Delete User Modal.
-     */
+    
     var createUserModal = document.getElementById("createUserModal");
     var editUserModal = document.getElementById("editUserModal");
     var deleteUserModal = document.getElementById("deleteUserModal");
@@ -110,9 +104,7 @@ $(document).ready(async function () {
 
     }
 
-    /**
-     * If create button is clicked, display modal (form)
-     */
+    
     document.getElementById('createUser').onclick = function () {
         createUserModal.style.display = "block";
         document.body.style.overflow = 'hidden';
@@ -120,9 +112,7 @@ $(document).ready(async function () {
         $('#createUserBtn').off();
         $('#createUserBtn').click(() => {
             if (createInputValidation()) {
-                /**
-                 * AJAX call to create a user with the values from the form admin fills out from the admin panel.
-                 */
+                
                 $.ajax({
                     url: '/createUser',
                     type: 'POST',
@@ -182,7 +172,7 @@ $(document).ready(async function () {
      * This function checks to see if the inputted values for sessionCost
      * and yearsExperience fieldsa are valid.
      * 
-     * @returns true if sessionCost or yearsExperience fields are invalid.
+     * @returns 
      */
     function negativeValidationcreate() {
         const yearsExp = document.getElementById("yearsExperience").value;
@@ -197,8 +187,8 @@ $(document).ready(async function () {
      * This function checks to see if the to be deleted user is the last
      * administrator in the database.
      * 
-     * @param {*} data as form field
-     * @returns error if the deletion fails
+     * @param {*} data 
+     * @returns 
      */
     function handleDeleteResponse(data) {
         if (data == 'lastAdmin') {
@@ -215,28 +205,21 @@ $(document).ready(async function () {
         }, 2500);
     }
 
-    /**
-     * Get all classnames to check which row was clicked to delete user.
-     */
+    
     const deleteUserBtns = document.querySelectorAll('.deleteUser');
 
-    /**
-     * Loop through each delete icon and set function to display modal.
-     */
+    
     for (var i = 0; i < deleteUserBtns.length; i++) {
         deleteUserBtns[i].onclick = function (e) {
             deleteUserModal.style.display = "block";
             document.body.style.overflow = 'hidden';
             document.getElementById("deleteUserErrorMessage").style.display = 'none';
 
-            // Store the closes table row that was clicked
             const currentRow = this.closest('tr');
 
-            // Display username for the user's table row that was clicked
             document.getElementById('deleteUsername').innerHTML = "@" + this.closest('tr').children[2].innerHTML;
             let userType = currentRow.children[5].innerHTML.toLowerCase();
             document.getElementById('deleteUserBtn').onclick = function () {
-                // Remove row and hide modal
                 $.ajax({
                     url: '/deleteUser',
                     type: 'DELETE',
@@ -339,14 +322,10 @@ $(document).ready(async function () {
         showTherapyOptions($("#editUserType"));
     }
 
-    /**
-     * Get all classnames to check which row was clicked to edit user.
-     */
+    
     const editUserBtns = document.querySelectorAll('.editUser');
 
-    /**
-     * Loop through each edit icon and set function to display modal.
-     */
+    
     for (var i = 0; i < editUserBtns.length; i++) {
         editUserBtns[i].onclick = function (e) {
             editUserModal.style.display = "block";
@@ -357,9 +336,7 @@ $(document).ready(async function () {
             $('#editUserBtn').off();
             $('#editUserBtn').click(() => {
                 if (editInputValidation()) {
-                    /**
-                     * AJAX call to edit a user with the values from the form admin fills out from the admin panel.
-                     */
+                    
                     $.ajax({
                         url: '/editUser',
                         type: 'PUT',
@@ -438,25 +415,18 @@ $(document).ready(async function () {
         }
     }
 
-    /**
-     * If close icon is clicked, hide modal for Create User.
-     */
+    
     document.getElementById("closeCreate").onclick = function () {
         createUserModal.style.display = "none";
         document.body.style.overflow = 'auto';
     }
 
-    /**
-     * If close icon is clicked, hide modal for Edit User.
-     */
     document.getElementById("closeEdit").onclick = function () {
         editUserModal.style.display = "none";
         document.body.style.overflow = 'auto';
     }
 
-    /**
-     * If cancel button is clicked, hide modal for Delete User.
-     */
+    
     document.getElementById("closeDelete").onclick = function () {
         deleteUserModal.style.display = "none";
         document.body.style.overflow = 'auto';
@@ -484,15 +454,12 @@ $(document).ready(async function () {
         }
     }
 
-    /**
-     * Get all settings icons from each row and iterate in a loop to check which one was clicked.
-     */
+    
     const dashSet = document.querySelectorAll('.dashSettings');
     for (const set of dashSet) {
         set.onclick = function () {
             if (this.classList.contains('active') || this.classList.contains('inactive')) {
 
-                // Set the dashsettings icons as active and toggable
                 this.firstElementChild.classList.toggle('active');
                 if (this.children[1].classList.contains('active') ||
                     this.children[1].classList.contains('inactive') ||
@@ -511,23 +478,18 @@ $(document).ready(async function () {
     }
 });
 
-/**
- * Live search function for table search.
- */
+
 function searchTable() {
     const searchInput = document.getElementById("searchbar").value.toUpperCase();
     const table = document.getElementById("dashboardTable");
     const trs = table.tBodies[0].getElementsByTagName("tr");
     let count = 0;
 
-    // Loop through tbody's rows
     for (var i = 0; i < trs.length; i++) {
         var tds = trs[i].getElementsByTagName("td");
         trs[i].style.display = "none";
 
-        // loop through row cells to check each element
         for (var j = 0; j < tds.length; j++) {
-            // check if there's a match in the table
             if (tds[j].innerHTML.toUpperCase().indexOf(searchInput) > -1) {
                 trs[i].style.display = "";
                 count++;
@@ -538,9 +500,7 @@ function searchTable() {
     $("#resultsFound").html(`${count}`);
 }
 
-/**
- * Sort table function when table headings is clicked.
- */
+
 function sortTable() {
     const table = document.getElementById('dashboardTable');
     const headers = table.querySelectorAll('.tHead');
@@ -652,9 +612,7 @@ function isEmail(email) {
     return regex.test(email);
 }
 
-/**
- * Trigger click function for enter key for all input fields for create form.
- */
+
 const inputCreate = document.querySelectorAll("#createUserForm .form-control");
 for (var i = 0; i < inputCreate.length; i++) {
     inputCreate[i].addEventListener("keypress", function (e) {
@@ -665,9 +623,7 @@ for (var i = 0; i < inputCreate.length; i++) {
     });
 }
 
-/**
- *  Trigger click function for enter key for all input fields for create form
- */
+
 const inputEdit = document.querySelectorAll("#editUserForm .form-control");
 for (var i = 0; i < inputEdit.length; i++) {
     inputEdit[i].addEventListener("keypress", function (e) {
