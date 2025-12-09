@@ -49,9 +49,7 @@ function getTherapist(therapistId) {
                 multiplier = 6;
             }
             $("#cartCost").html(`${parseFloat(therapistInformation.sessionCost * multiplier).toFixed(2)}`)
-            $("#subTotal").html(`${parseFloat(therapistInformation.sessionCost * multiplier).toFixed(2)}`)
-            $("#taxTotal").html(`${parseFloat(therapistInformation.sessionCost * multiplier * 0.12).toFixed(2)}`)
-            $("#total").html(`${parseFloat(therapistInformation.sessionCost * multiplier * 1.12).toFixed(2)}`)
+            $("#total").html(`${parseFloat(therapistInformation.sessionCost * multiplier).toFixed(2)}`)
         }
     })
 }
@@ -77,9 +75,7 @@ function updateCart() {
                     multiplier = 6;
                 }
                 $("#cartCost").html(`${parseFloat(therapistInformation.sessionCost * multiplier).toFixed(2)}`)
-                $("#subTotal").html(`${parseFloat(therapistInformation.sessionCost * multiplier).toFixed(2)}`)
-                $("#taxTotal").html(`${parseFloat(therapistInformation.sessionCost * multiplier * 0.12).toFixed(2)}`)
-                $("#total").html(`${parseFloat(therapistInformation.sessionCost * multiplier * 1.12).toFixed(2)}`)
+                $("#total").html(`${parseFloat(therapistInformation.sessionCost * multiplier).toFixed(2)}`)
             }
         })
     })
