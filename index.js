@@ -1,10 +1,7 @@
 /**
  * Dependencies.
  */
-if (process.env.NODE_ENV != 'production') {
-    require('dotenv').config()
-}
-
+require("dotenv").config();
 const express = require("express");
 const path = require('path');
 const session = require('express-session');
@@ -22,7 +19,8 @@ const {
     Server
 } = require("socket.io");
 const io = new Server(server);
-const nodemailer = require('nodemailer');
+const sendEmail = require('./utils/sendEmail');
+
 
 /**
  * Create a nodemailer transporter that supports either explicit SMTP
@@ -1528,80 +1526,93 @@ io.on('connection', (socket) => {
 
     socket.on("chat message", async function (msg, room) {
 
-        socket.to(room).emit("chat message", {
-            message: msg
-        });
+        socket.to(room).emit("chat message", { message: msg });
 
         const trimmed = String(msg || '').trim().toLowerCase();
+
         if (trimmed === 'summary') {
             try {
                 let requester = await User.findById(userId).exec();
                 if (!requester || requester.userType !== 'patient') {
-                    // Ignore summary request from non-patients; notify requester
-                    socket.emit('summary-result', { status: 'error', error: 'Summary is only available for patients.' });
+                    socket.emit('summary-result', {
+                        status: 'error',
+                        error: 'Summary is only available for patients.'
+                    });
                     return;
                 }
 
-                // load all messages for this order/room in chronological order
-                const messages = await Chat.find({ orderId: orderID }).sort({ createdAt: 'asc' }).exec();
+                // получаем сообщения
+                const messages = await Chat.find({ orderID })
+                    .sort({ createdAt: 1 })
+                    .exec();
 
-                // build array of messages text (up to last 100 messages to keep sizes reasonable)
-                const texts = messages.slice(-100).map(m => `${m.sender}: ${m.message}`);
+                const texts = messages
+                    .slice(-100)
+                    .map(m => `${m.sender}: ${m.message}`);
 
                 const summary = await generateSummaryText(texts);
 
-                const transporter = createMailerTransport();
+                // HTML письмо
+                const summaryHtml =
+                    `<h3>Chat summary</h3><p>${summary.replace(/\n/g, "<br>")}</p>`;
 
-                const mailOpts = {
-                    from: process.env.MAIL_USER,
-                    to: requester.email,
-                    subject: 'Your chat summary',
-                    html: `<h3>Chat summary</h3><p>${summary.replace(/\n/g, '<br>')}</p>`
-                };
+                // отправляем Resend
+                const sent = await sendEmail(
+                    requester.email,
+                    "Your chat summary",
+                    summaryHtml
+                );
 
-                transporter.sendMail(mailOpts, function (err, info) {
-                    if (err) {
-                        console.error('Error sending chat summary email:', err);
+                if (!sent) {
+                    console.error("Email sending failed, saving summary...");
 
-                        Summary.create({ userId: requester._id, orderId: orderID, summary: summary })
-                            .then(saved => {
-                                socket.emit('summary-result', { status: 'saved', id: saved._id, message: 'Email failed — summary was saved to your account.' });
-                            })
-                            .catch(saveErr => {
-                                console.error('Failed to save summary fallback:', saveErr);
-                                socket.emit('summary-result', { status: 'error', error: 'Failed to send summary email and could not save it.' });
-                            });
+                    const saved = await Summary.create({
+                        userId: requester._id,
+                        orderId,
+                        summary
+                    });
 
-                    } else {
-                        console.log('Summary email sent — nodemailer info:', info);
-                        socket.emit('summary-result', { status: 'sent', email: requester.email });
-                    }
-                });
+                    socket.emit("summary-result", {
+                        status: "saved",
+                        id: saved._id,
+                        message: "Email failed — summary saved to your account."
+                    });
+
+                } else {
+                    socket.emit("summary-result", {
+                        status: "sent",
+                        email: requester.email
+                    });
+                }
 
             } catch (e) {
-                console.log('Summary handling error:', e);
-                socket.emit('summary-result', { status: 'error', error: 'Something went wrong creating summary.' });
+                console.log("Summary handling error:", e);
+                socket.emit("summary-result", {
+                    status: "error",
+                    error: "Something went wrong creating summary."
+                });
             }
 
             return;
         }
 
-        //save chat to the database
+        // обычное сообщение
         let connect = mongoose.connect(process.env.DATABASE_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true
-        })
+        });
+
         connect.then(db => {
             let chatMessage = new Chat({
-                message: msg,
-                sender: userId,
-                orderId: orderID
-            });
+            message: msg,
+            sender: userId,
+            orderId: orderID
+        });
 
             chatMessage.save();
         });
-
     });
+
 
     socket.on("join-room", function (room, senderId) {
         socket.join(room);

@@ -11,10 +11,10 @@ const batmanSec = document.getElementById('batmanImg');
 function clientInputValidation(){
     validated = false;
     var phoneLength = $("#phone").val();
-    if (phoneLength.length != 10) {
+    if (phoneLength.length != 11) {
         window.scrollTo(0, document.body.scrollHeight);
         document.getElementById("signUpErrorMessage").style.display = 'block';
-        document.getElementById("signUpErrorMessage").innerHTML = "Your phone number must be of length 10";
+        document.getElementById("signUpErrorMessage").innerHTML = "Your phone number must be of length 11";
     } else if (!isEmail($("#email").val())) {
         window.scrollTo(0, document.body.scrollHeight);
         document.getElementById("signUpErrorMessage").style.display = 'block';
